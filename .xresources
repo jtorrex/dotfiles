@@ -1,0 +1,71 @@
+!    *----------------------------*
+!    |  Dotfiles  -  .Xresources  |
+!    *----------------------------*
+! This files contains configuration for:
+!  * terminal colours
+!  * urxvt
+
+! === Font ===
+! *font:          xft:inconsolatazi4:size=18
+!Inconsolata
+#URxvt.font: xft:Hack-Regular-14
+#URxvt.boldFont: xft:Hack-Bold-14
+
+!Inconsolata-g
+!URxvt.font: xft:InconsolataG-10
+
+!Anonymous Pro
+!URxvt.font: xft:Anonymous\ Pro-12
+
+!Monaco
+!URxvt.font: xft:Monaco-10
+
+!Droid Sans Mono
+!URxvt.font: xft:Droid Sans Mono-10
+
+!DejaVu Sans
+!URxvt.font: xft:DejaVu Sans Mono-10
+
+!Manospace
+!URxvt.font: xft:Monospace-10
+
+!Terminus
+!URxvt.font: xft:Terminus-10
+
+! === Colours ===
+! special
+*.foreground:   #e3e2e5
+*.background:   #000000
+*.cursorColor:  #e3e2e5
+
+! black
+*.color0:       #000000
+*.color8:       #c8e979
+
+! red
+*.color1:       #111013
+*.color9:       #6ccaad
+
+! green
+*.color2:       #242228
+*.color10:      #bb95eb
+
+! yellow
+*.color3:       #3e3a43
+*.color11:      #99b25f
+
+! blue
+*.color4:       #5e5a66
+*.color12:      #ddcef4
+
+! magenta
+*.color5:       #85808d
+*.color13:      #75c9e8
+
+! cyan
+*.color6:       #b1aeb6
+*.color14:      #f6b784
+
+! white
+*.color7:       #e3e2e5
+*.color15:      #e3acc4
