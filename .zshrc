@@ -8,8 +8,8 @@ if [[ -n $SSH_CONNECTION ]]; then
  fi
 
 #INIT KEYCHAIN
-eval $(keychain --eval --quiet ~/.ssh/ed25519torrex)
-eval $(keychain --eval --quiet ~/.ssh/bscKeyTorreX)
+eval $(keychain --eval --quiet ~/.ssh/ed25519-torrex-key)
+eval $(keychain --eval --quiet ~/.ssh/bsc-key-torrex)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
