@@ -61,6 +61,7 @@ compinit
 
 #ALIAS
 alias vim='nvim'
+alias vi='nvim'
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias repair-qemu="sudo rm -rf /etc/libvirt/qemu.old && sudo mv /etc/libvirt/qemu /etc/libvirt/qemu.old && sudo ln -s ~/VirtualMachines/qemu /etc/libvirt/qemu && sudo systemctl restart libvirtd"
 alias es='setxkbmap es'
