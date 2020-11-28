@@ -1,5 +1,5 @@
 #ZSH PREFS
-TERM=xterm-256color 
+export TERM=xterm-256color
 
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
