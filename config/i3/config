@@ -77,7 +77,7 @@ bindsym $mod+Shift+Right move right
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
-#bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
@@ -121,24 +121,24 @@ bindsym $mod+Ctrl+Left workspace prev
 #                 set $ws2 2:
 
 #DEFAULT
-#set $ws1 1
-#set $ws2 2
-#set $ws3 3
-#set $ws4 4
-#set $ws5 5
-#set $ws6 6
-#set $ws7 7
-#set $ws8 8
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
 
-set $ws1    "1:   Browser "
-set $ws2    "2:   Chat "
-set $ws3    "3:   Mail "
-set $ws4    "4:   Terminal "
-set $ws5    "5:   Files "
-set $ws6    "6:   Documents "
-set $ws7    "7:   Media "
-set $ws8    "8:   Design "
-set $ws9    "9:   General "
+#set $ws1    "1:   Browser "
+#set $ws2    "2:   Chat "
+#set $ws3    "3:   Mail "
+#set $ws4    "4:   Terminal "
+#set $ws5    "5:   Files "
+#set $ws6    "6:   Documents "
+#set $ws7    "7:   Media "
+#set $ws8    "8:   Design "
+#set $ws9    "9:   General "
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -254,7 +254,6 @@ mode "resize" {
 }
 
 #i3lock
-bindsym $mod+Shift+b exec i3lock-fancy
 bindsym $mod+Shift+i exec setxkbmap es
 bindsym $mod+Shift+u exec setxkbmap us
 
