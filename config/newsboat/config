@@ -3,3 +3,4 @@ reload-time 20
 browser "/usr/bin/firefox %u"
 show-read-feeds yes
 include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
+swap-title-and-hints yes
