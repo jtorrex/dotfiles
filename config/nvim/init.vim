@@ -7,6 +7,10 @@ set wildmenu
 set mouse-=a
 set shell=/bin/zsh
 
+" Optimize for fast terminal connections
+set ttyfast
+
+" Set terminal colors
 set t_Co=256
 
 let g:solarized_termtrans = 1
@@ -23,11 +27,30 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 set smarttab
+set smartindent
+set smartcase
 set splitbelow
-set relativenumber
 set conceallevel=1
 set laststatus=2
-set cursorline
+set ruler
+
+" Highlight cursor line
+" NOTE: disabled because it makes certain things slower
+"set cursorline
+
+" Disable cursorline to make vim faster
+set nocursorline
+set nocursorcolumn
+
+" Hold Ctr and use movement keys to move around window splits
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+
+" Ctr-tab to switch buffers
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
 
 "Search
 set hlsearch
@@ -60,3 +83,39 @@ let g:vimwiki_url_maxsave=0
 nnoremap Q <nop>
 " Do not show me man pages when I'm bad at pressing k
 nnoremap K <nop>
+" Turn off recording
+map q <Nop>
+
+" Make NERDTree pretty
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" Start NERDTree if no files were specified
+if exists("*NERDTree")
+  if has("autocmd")
+    augroup aug_nerdtree
+      autocmd!
+      autocmd vimEnter * if !argc() | NERDTree | endif
+    augroup END
+  endif
+
+  " Open NERDTree by default when starting vim with no file
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+endif
+
+" NerdTree show hidden files
+let NERDTreeShowHidden=1
+
+" Don't close NERDTree pane when opening a file
+let NERDTreeQuitOnOpen = 0
+
+" Solarized theme options
+let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+
