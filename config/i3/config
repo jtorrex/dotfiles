@@ -35,6 +35,7 @@ bindsym $mod+Shift+x exec --no-startup-id flameshot gui
 #exec --no-startup-id volumeicon
 exec_always --no-startup-id pulseaudio --kill
 exec_always --no-startup-id killall pulseaudio
+exec_always --no-startup-id killall pasystray
 exec_always --no-startup-id pulseaudio --start -D
 exec_always --no-startup-id pasystray
 bindsym $mod+Ctrl+m exec pavucontrol
