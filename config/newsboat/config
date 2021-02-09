@@ -4,3 +4,15 @@ browser "/usr/bin/firefox %u"
 show-read-feeds yes
 include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
 swap-title-and-hints yes
+
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+
