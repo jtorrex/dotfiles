@@ -6,6 +6,7 @@ set ruler
 set wildmenu
 set mouse-=a
 set shell=/bin/zsh
+let mapleader=","
 
 " Optimize for fast terminal connections
 set ttyfast
