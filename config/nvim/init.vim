@@ -7,20 +7,15 @@ set wildmenu
 set mouse-=a
 set shell=/bin/zsh
 let mapleader=","
-
 " Optimize for fast terminal connections
 set ttyfast
 
 " Set terminal colors
 set t_Co=256
-
-let g:solarized_termtrans = 1
-silent! colorscheme solarized
-set background=dark
+set termguicolors
 
 "Code folding
-set foldmethod=manual
-
+set foldmethod=manual 
 "Tabs and spacing
 set autoindent
 set cindent
@@ -49,6 +44,8 @@ map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
 
+map <C-t> :tabnew<cr>
+
 " Ctr-tab to switch buffers
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
@@ -69,8 +66,13 @@ Plugin 'itchyny/lightline.vim' "Add color to status line
 Plugin 'junegunn/fzf' "Fuzzer
 Plugin 'tpope/vim-fugitive' "Vim plugin for Git.
 Plugin 'tpope/vim-surround' "Surround brackets or quotes
-Plugin 'preservim/nerdtree'
-Plugin 'vimwiki/vimwiki'
+Plugin 'preservim/nerdtree' "Browse files from Vim
+Plugin 'vimwiki/vimwiki' "Keep notes organized
+Plugin 'ryanoasis/vim-devicons' "Icons on Vim
+Plugin 'wadackel/vim-dogrun' "Colorscheme
+Plugin 'ghifarit53/tokyonight-vim' "Colorscheme
+Plugin 'whatyouhide/vim-gotham' "Coloscheme Gotham by sudoers
+Plugin 'sheerun/vim-polyglot' "A collection of language packs for Vim.
 call vundle#end()            " required
 
 map <C-n> :NERDTreeToggle<CR> "Nerd tree maping
@@ -107,16 +109,20 @@ endif
 
 " NerdTree show hidden files
 let NERDTreeShowHidden=1
+" Nerdree Hide Arrows
+let g:NERDTreeDirArrows=0
 
 " Don't close NERDTree pane when opening a file
 let NERDTreeQuitOnOpen = 0
-
-" Solarized theme options
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
 
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
 
+colorscheme tokyonight
+"set background=dark
+let g:lightline = {'colorscheme' : 'tokyonight'}
