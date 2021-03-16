@@ -31,41 +31,42 @@
 
 !Terminus
 !URxvt.font: xft:Terminus-10
+! general
+*foreground: #a9b1d6
+*background: #1a1b26
+*cursorColor: #a9b1d6
 
-! === Colours ===
-! special
-*.foreground:   #e3e2e5
-*.background:   #000000
-*.cursorColor:  #e3e2e5
+! terminal padding color
+*borderColor: #1a1b26
 
 ! black
-*.color0:       #000000
-*.color8:       #c8e979
+*color0: #1a1b26
+*color8: #4e5173
 
 ! red
-*.color1:       #111013
-*.color9:       #6ccaad
+*color1: #F7768E
+*color9: #F7768E
 
 ! green
-*.color2:       #242228
-*.color10:      #bb95eb
+*color2: #9ECE6A
+*color10: #9ECE6A
 
 ! yellow
-*.color3:       #3e3a43
-*.color11:      #99b25f
+*color3: #E0AF68
+*color11: #E0AF68
 
 ! blue
-*.color4:       #5e5a66
-*.color12:      #ddcef4
+*color4: #7AA2F7
+*color12: #7AA2F7
 
 ! magenta
-*.color5:       #85808d
-*.color13:      #75c9e8
+*color5: #9a7ecc
+*color13: #9a7ecc
 
 ! cyan
-*.color6:       #b1aeb6
-*.color14:      #f6b784
+*color6: #4abaaf
+*color14: #4abaaf
 
 ! white
-*.color7:       #e3e2e5
-*.color15:      #e3acc4
+*color7: #acb0d0
+*color15: #acb0d0
