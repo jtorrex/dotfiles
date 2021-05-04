@@ -2,14 +2,15 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# set mod key (Mod1=Alt, Mod4=Super)
 set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:FontAwesome 11
+font pango:Hack Bold 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier    $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
@@ -17,7 +18,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # Focus follows mouse
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -53,9 +54,9 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym Print exec --no-startup-id flameshot
+bindsym $mod+Print --release exec --no-startup-id flameshot
+bindsym $mod+Shift+Print --release exec --no-startup-id flameshot
 
 # change focus
 bindsym $mod+j focus left
@@ -100,10 +101,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+o focus mode_toggle
 
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
@@ -207,7 +208,7 @@ for_window [class="Xfburn"] floating enable
 #bindsym $mod+Shift+s sticky toggle
 
 # switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+#for_window [urgent=latest] focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -263,7 +264,8 @@ bindsym $mod+Shift+u exec setxkbmap us
 #STYLE
 new_window pixel 1
 new_float normal
-hide_edge_borders none
+hide_edge_borders smart
+default_floating_border pixel 2
 
 ############################################################################################3
 #INIT SERVICES AFTER i3
@@ -289,7 +291,7 @@ exec --no-startup-id zsh -c 'tmux start-server'
 exec ~/.xprofile.sh &
 exec xrandr &
 
-for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 0
 
 ## Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
@@ -302,7 +304,7 @@ bar {
 	bindsym button5 nop
     workspace_buttons       yes
 	strip_workspace_numbers yes
-    font xft:URWGothic-Book 12
+    font pango:Hack 12
 
     colors {
         background #222D31
@@ -320,10 +322,11 @@ bar {
 
 #hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
+bindsym $mod+Shift+m bar mode dock bar-0
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-client.focused          #556064 #556064 #80FFF9 #FDF6E3
+client.focused          #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
 client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
