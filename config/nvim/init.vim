@@ -75,7 +75,26 @@ Plugin 'whatyouhide/vim-gotham' "Coloscheme Gotham by sudoers
 Plugin 'sheerun/vim-polyglot' "A collection of language packs for Vim.
 call vundle#end()            " required
 
-map <C-n> :NERDTreeToggle<CR> "Nerd tree maping
+" Nerdtree config
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" Start NERDTree and put the cursor back in the other window.
+" autocmd VimEnter * NERDTree | wincmd p
+
+" Make NERDTree pretty
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" NerdTree show hidden files
+let NERDTreeShowHidden=1
+" Nerdree Hide Arrows
+let NERDTreeDirArrows=0
+
+" Don't close NERDTree pane when opening a file
+"let NERDTreeQuitOnOpen = 1
 
 " Vim Wiki
 let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown'}]
@@ -88,32 +107,6 @@ nnoremap Q <nop>
 nnoremap K <nop>
 " Turn off recording
 map q <Nop>
-
-" Make NERDTree pretty
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-" Start NERDTree if no files were specified
-if exists("*NERDTree")
-  if has("autocmd")
-    augroup aug_nerdtree
-      autocmd!
-      autocmd vimEnter * if !argc() | NERDTree | endif
-    augroup END
-  endif
-
-  " Open NERDTree by default when starting vim with no file
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-endif
-
-" NerdTree show hidden files
-let NERDTreeShowHidden=1
-" Nerdree Hide Arrows
-let g:NERDTreeDirArrows=0
-
-" Don't close NERDTree pane when opening a file
-let NERDTreeQuitOnOpen = 0
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
