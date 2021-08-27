@@ -62,6 +62,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vund
 set nocompatible              " be iMproved, required
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' "Add plugin manager
+" Plugin 'Yggdroot/indentLine'
 Plugin 'itchyny/lightline.vim' "Add color to status line
 Plugin 'junegunn/fzf' "Fuzzer
 Plugin 'tpope/vim-fugitive' "Vim plugin for Git.
@@ -119,3 +120,6 @@ let g:tokyonight_transparent_background = 1
 colorscheme tokyonight
 "set background=dark
 let g:lightline = {'colorscheme' : 'tokyonight'}
+
+" Set identation line for YAML
+" let g:indentLine_char = '⦙'
