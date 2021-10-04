@@ -1,5 +1,6 @@
 #ZSH PREFS
 export TERM=xterm-256color
+export GOPATH=$HOME/.go/
 
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
