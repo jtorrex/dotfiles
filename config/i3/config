@@ -36,12 +36,6 @@ bindsym $mod+Shift+x exec --no-startup-id flameshot gui
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-#exec --no-startup-id volumeicon
-exec_always --no-startup-id pulseaudio --kill
-exec_always --no-startup-id killall pulseaudio
-exec_always --no-startup-id killall pasystray
-exec_always --no-startup-id pulseaudio --start -D
-exec_always --no-startup-id pasystray
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ###############################################################################################
@@ -275,12 +269,14 @@ exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id blueman-applet
 exec --no-startup-id desktop-items
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift-gtk
 exec --no-startup-id flameshot
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id syncthing-gtk
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id setcursor
+exec_always --no-startup-id pasystray
 exec --no-startup-id setxkbmap -model pc104 -layout us,es -variant altgr-intl, -option grp:win_space_toggle
 exec eval `ssh-agent -s`
 
