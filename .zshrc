@@ -8,9 +8,6 @@ if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  fi
 
-#INIT KEYCHAIN
-eval $(keychain --eval --quiet ~/.ssh/ed25519-torrex-key)
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -85,20 +82,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-function pomo() {
-    arg1=$1
-    shift
-    args="$*"
-
-    min=${arg1:?Example: pomo 15 Take a break}
-    sec=$((min * 60))
-    msg="${args:?Example: pomo 15 Take a break}"
-
-    notify-send -u low -t 2000 "Running Pomodoro for $min min"
-
-    while true; do
-        sleep "${sec:?}" && echo "${msg:?}" && notify-send -u critical -t 0 "${msg:?}"
-    done
-}
-
