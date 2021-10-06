@@ -4,9 +4,18 @@ export GOPATH=$HOME/.go/
 
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
- else
+else
    export EDITOR='vim'
- fi
+fi
+
+ # Enable ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
