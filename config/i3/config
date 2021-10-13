@@ -208,7 +208,7 @@ for_window [class="Xfburn"] floating enable
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart && nitrogen --restore
+bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -217,7 +217,7 @@ bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id blurlock, mode "default"
-    bindsym s exec --no-startup-id i3lock && systemctl suspend suspend, mode "default"
+    bindsym s exec --no-startup-id blurlock && systemctl suspend suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
@@ -265,7 +265,7 @@ default_floating_border pixel 2
 #INIT SERVICES AFTER i3
 ############################################################################################3
 # Autostart applications
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/pexels-irina-iriser-1379636.jpg; sleep 1; compton -b
 exec --no-startup-id blueman-applet
 exec --no-startup-id desktop-items
 exec --no-startup-id nm-applet
