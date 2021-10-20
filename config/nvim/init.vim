@@ -54,9 +54,10 @@ nnoremap K <nop>
 map q <Nop>
 
 " Vundle settings
-set runtimepath+=~/.vim/bundle/Vundle.vim " Set the runtime path to include Vundle and initialize
+set runtimepath+=~/.config/nvim/bundle/Vundle.vim " Set the runtime path to include Vundle and initialize
+let path='~/.config/nvim/bundle'
 set nocompatible " be iMproved, required
-call vundle#begin() " Start vundle
+call vundle#begin("~/.config/nvim/bundle") " Start vundle
 Plugin 'VundleVim/Vundle.vim' "Add plugin manager
 Plugin 'itchyny/lightline.vim' "Add color to status line
 Plugin 'junegunn/fzf' "File fuzzer
