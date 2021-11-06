@@ -2,6 +2,7 @@
 export TERM=xterm-256color
 export GOPATH=$HOME/.go/
 export PATH="$HOME/bin:$PATH"
+export NOTMUCH_CONFIG=~/.config/notmuch/notmuch #notmuch mail config
 
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
