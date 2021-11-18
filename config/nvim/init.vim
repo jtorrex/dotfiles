@@ -101,8 +101,8 @@ let g:onedark_colors = {
 \ }
 
 " Load the colorscheme
-" colorscheme onedark
-colorscheme tokyonight
+colorscheme onedark
+" colorscheme tokyonight
 " set background=dark "Dark background disabled
 let g:lightline = {'colorscheme' : 'tokyonight'} " Lightline colorscheme theme
 
