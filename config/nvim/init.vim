@@ -69,6 +69,7 @@ Plugin 'ryanoasis/vim-devicons' "Icons on Vim
 Plugin 'wadackel/vim-dogrun' "Colorscheme
 Plugin 'jremmen/vim-ripgrep' "Vim rig-grep to search against text
 Plugin 'ghifarit53/tokyonight-vim' "Colorscheme
+Plugin 'ful1e5/onedark.nvim' " Coloscheme
 Plugin 'whatyouhide/vim-gotham' "Coloscheme Gotham by sudoers
 Plugin 'sheerun/vim-polyglot' "A collection of language packs for Vim.
 call vundle#end() " Stop Vundle
@@ -89,8 +90,20 @@ let NERDTreeDirArrows=0 "NERDTree shows arrows
 let g:tokyonight_style = 'night' " Tokyonight theme: available: night, storm
 let g:tokyonight_enable_italic = 1 " Tokyonight italic enabled
 let g:tokyonight_transparent_background = 1 "Tokyonight theme tranp background
-colorscheme tokyonight " Colorscheme selected
-"set background=dark "Dark background disabled
+" Plugin onedark theming settings
+let g:onedark_function_style = "italic"
+let g:onedark_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+
+" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:onedark_colors = {
+  \ 'hint': 'orange',
+  \ 'error': '#ff0000'
+\ }
+
+" Load the colorscheme
+" colorscheme onedark
+colorscheme tokyonight
+" set background=dark "Dark background disabled
 let g:lightline = {'colorscheme' : 'tokyonight'} " Lightline colorscheme theme
 
 "Plugin Vimwiki settings
