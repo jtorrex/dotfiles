@@ -35,17 +35,41 @@ set ignorecase
 set smartcase
 set diffopt +=iwhite
 
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set bomb
+set binary
+
 " Mapping keys settings
 " Hold Ctrl and use keys to move around splits
 map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
-" This toogles Nerdtree...
+" Create a new tab
 map <C-t> :tabnew<cr>
 " Ctrl-tab to switch buffers
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
+map <C-Pagedown> :tabprev <cr>
+map <C-Pageup> :tabnext <cr>
+map <C-w>- :new <cr>
+map <C-w>_ :vnew <cr>
+map <leader>- :split<cr>
+
+" Open new split panes to right and bottom. More natural
+set splitbelow
+set splitright
+
+" session management
+nnoremap <leader>so :OpenSession<Space>
+nnoremap <leader>ss :SaveSession<Space>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+map <leader>_ :vsplit<cr>
 " Do not enter ex mode when I fat finger q with shift pressed
 nnoremap Q <nop>
 " Do not show me man pages when I'm bad at pressing k
@@ -76,15 +100,15 @@ call vundle#end() " Stop Vundle
 
 " Plugin Nerdtree settings
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTree | wincmd p " Start NERDTree and put the cursor back in the other window.
 let NERDTreeMinimalUI = 1 " Make NERDTree pretty
 let NERDTreeDirArrows = 1 " Make NERDTree pretty 2
 let NERDTreeShowHidden=1 "NERDTree shows hidden files
 let NERDTreeDirArrows=0 "NERDTree shows arrows
-"let NERDTreeQuitOnOpen = 1 " Don't close NERDTree pane when opening a file
+let NERDTreeQuitOnOpen = 1 " Don't close NERDTree pane when opening a file
 
 " Plugin tokyonight theming settings
 let g:tokyonight_style = 'night' " Tokyonight theme: available: night, storm
