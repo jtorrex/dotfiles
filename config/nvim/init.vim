@@ -13,11 +13,11 @@ set foldmethod=manual "Code folding
 set autoindent "Autoidentation
 set cindent "Colum identation
 " let g:indentLine_char = '⦙' " Set identation line for YAML
-set tabstop=4 "Tab spacing
-set expandtab "Something abot tab :P
-set shiftwidth=4 "Spacing
-set smarttab "Tab
-set smartindent "Identation
+set tabstop=4 " number of spaces that a tab character in the file counts for.
+set expandtab " allows to replace the tabs by white spaces characters
+set shiftwidth=4 "Spacing for tabs
+set smarttab " Smart tabbing
+set smartindent "Smart indent
 set smartcase "Smar casing enabled
 set splitbelow "splitting
 set conceallevel=1 "Leveling, identation
@@ -53,8 +53,8 @@ map <C-t> :tabnew<cr>
 " Ctrl-tab to switch buffers
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
-map <C-Pagedown> :tabprev <cr>
-map <C-Pageup> :tabnext <cr>
+map <C-Pageup> :tabprev <cr>
+map <C-Pagedown> :tabnext <cr>
 map <C-w>- :new <cr>
 map <C-w>_ :vnew <cr>
 map <leader>- :split<cr>
@@ -95,6 +95,8 @@ Plugin 'jremmen/vim-ripgrep' "Vim rig-grep to search against text
 Plugin 'ghifarit53/tokyonight-vim' "Colorscheme
 Plugin 'ful1e5/onedark.nvim' " Coloscheme
 Plugin 'whatyouhide/vim-gotham' "Coloscheme Gotham by sudoers
+Plugin 'LukeGoodsell/nextflow-vim'
+Plugin 'thecodesmith/vim-groovy'
 Plugin 'sheerun/vim-polyglot' "A collection of language packs for Vim.
 call vundle#end() " Stop Vundle
 
@@ -103,12 +105,12 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-" autocmd VimEnter * NERDTree | wincmd p " Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p " Start NERDTree and put the cursor back in the other window.
 let NERDTreeMinimalUI = 1 " Make NERDTree pretty
 let NERDTreeDirArrows = 1 " Make NERDTree pretty 2
 let NERDTreeShowHidden=1 "NERDTree shows hidden files
 let NERDTreeDirArrows=0 "NERDTree shows arrows
-let NERDTreeQuitOnOpen = 1 " Don't close NERDTree pane when opening a file
+let NERDTreeQuitOnOpen = 0 " Don't close NERDTree pane when opening a file
 
 " Plugin tokyonight theming settings
 let g:tokyonight_style = 'night' " Tokyonight theme: available: night, storm
@@ -131,7 +133,7 @@ colorscheme onedark
 let g:lightline = {'colorscheme' : 'tokyonight'} " Lightline colorscheme theme
 
 "Plugin Vimwiki settings
-let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown'}] " Define vimwiki path
+let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown', 'ext': '.md'}] " Define vimwiki path
 au FileType vimwiki setlocal shiftwidth=6 tabstop=4 noexpandtab " Define vimwifi format
 let g:vimwiki_url_maxsave=0 "Vimwiki url maxsave?`
 
