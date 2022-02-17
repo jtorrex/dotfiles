@@ -40,6 +40,11 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 ###############################################################################################
 
+# Audio controls
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +3%; notify-send 'Volume +3%'"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -3%; notify-send 'Volume -3%'"
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle; notify-send 'Mute/Unmute'"
+
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
