@@ -8,10 +8,9 @@ set shell=/bin/zsh "Default shell
 let mapleader="," "Master KEY for vim
 set ttyfast "Optimize for fast terminal connections
 set t_Co=256 " Set terminal colors
-set termguicolors "Set terminal colors
-set foldmethod=manual "Code folding
-set autoindent "Autoidentation
-set cindent "Colum identation
+set termguicolors "Set terminal
+colors set foldmethod=manual "Code folding
+set autoindent "Autoidentation set cindent "Colum identation
 " let g:indentLine_char = '⦙' " Set identation line for YAML
 set tabstop=4 " number of spaces that a tab character in the file counts for.
 set expandtab " allows to replace the tabs by white spaces characters
@@ -127,8 +126,9 @@ let g:onedark_colors = {
 \ }
 
 " Load the colorscheme
-colorscheme onedark
-" colorscheme tokyonight
+" colorscheme onedark
+" colorscheme delek
+colorscheme tokyonight
 " set background=dark "Dark background disabled
 let g:lightline = {'colorscheme' : 'tokyonight'} " Lightline colorscheme theme
 
