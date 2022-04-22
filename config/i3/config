@@ -1,6 +1,4 @@
 # i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # set mod key (Mod1=Alt, Mod4=Super)
 set $mod Mod4
@@ -25,11 +23,8 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show combi -show-icons
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# toggle flameshot
 bindsym $mod+Shift+x exec --no-startup-id flameshot gui
 
 ################################################################################################
@@ -41,27 +36,26 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ###############################################################################################
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +3%; notify-send 'Volume +3%'"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -3%; notify-send 'Volume -3%'"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +3%; notify-send 'i3: Volume +3%'"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -3%; notify-send 'i3: Volume -3%'"
 bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle; notify-send 'Mute/Unmute'"
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'i3: brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'i3: brightness down'"
 
 # Start Applications
 bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id flameshot
 bindsym $mod+Print --release exec --no-startup-id flameshot
 bindsym $mod+Shift+Print --release exec --no-startup-id flameshot
 
-# change focus
+# change focus: vim mode
 bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+k focus right
+#bindsym $mod+h focus down
+#bindsym $mod+l focus up
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -69,11 +63,11 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# move focused window: vim mode
+bindsym $mod+Shift+j focus left
+bindsym $mod+Shift+k focus right
+bindsym $mod+Shift+h focus down
+bindsym $mod+Shift+l focus up
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -81,23 +75,31 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+#navigate workspaces next / previous
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+#navigate workspaces next / previous: vim mode
+bindsym $mod+Ctrl+j workspace next
+bindsym $mod+Ctrl+k workspace prev
+
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+h split h; exec notify-send 'i3: tile horizontally'
+bindsym $mod+v split v; exec notify-send 'i3: tile vertically'
 bindsym $mod+q split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking; exec notify-send 'i3: stacking'
+bindsym $mod+w layout tabbed; exec notify-send 'i3: tabbed'
+bindsym $mod+e layout toggle split; exec notify-send 'i3: split'
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
@@ -118,15 +120,6 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-
-# Workspace names
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
-
 #DEFAULT
 set $ws1 1
 set $ws2 2
@@ -137,19 +130,9 @@ set $ws6 6
 set $ws7 7
 set $ws8 8
 
-#set $ws1    "1:   Browser "
-#set $ws2    "2:   Chat "
-#set $ws3    "3:   Mail "
-#set $ws4    "4:   Terminal "
-#set $ws5    "5:   Files "
-#set $ws6    "6:   Documents "
-#set $ws7    "7:   Media "
-#set $ws8    "8:   Design "
-#set $ws9    "9:   General "
-
 # focus the child container
 #bindsym $mod+d focus child
-
+#
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -182,20 +165,12 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open specific applications in floating mode
 # for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
 for_window [class="virt-manager"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pamac-updater"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="termite"] floating enable
 for_window [class="Qtconfig-qt4"] floating enable border normal
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
@@ -278,7 +253,8 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id flameshot
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id syncthing-gtk
+exec --no-startup-id syncthing
+exec --no-startup-id keepassxc
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id setcursor
 exec_always --no-startup-id pasystray
