@@ -245,7 +245,7 @@ default_floating_border pixel 2
 #INIT SERVICES AFTER i3
 ############################################################################################3
 # Autostart applications
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/pexels-irina-iriser-1379636.jpg; sleep 1; compton -b
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/pexels-arist-creathrive-2253573.jpg; sleep 1; compton -b
 exec --no-startup-id blueman-applet
 exec --no-startup-id desktop-items
 exec --no-startup-id nm-applet
@@ -271,30 +271,46 @@ exec xrandr &
 #for_window [class="^.*"] border pixel 0
 
 ## Start i3bar to display a workspace bar (plus the system information i3status if available)
+#bar {
+#    id bar-0
+#	i3bar_command i3bar
+#	status_command i3blocks -c ~/.config/i3blocks/config
+#	position top
+#	tray_output primary
+#	bindsym button4 nop
+#	bindsym button5 nop
+#    workspace_buttons       yes
+#	strip_workspace_numbers yes
+#    font pango:Hack 12
+#
+#    colors {
+#        background #222D31
+#        statusline #F9FAF9
+#        separator  #454947
+#
+#        #class             border  backgr. text
+#        focused_workspace  #F9FAF9 #16a085 #292F34
+#        active_workspace   #595B5B #353836 #FDF6E3
+#        inactive_workspace #595B5B #222D31 #EEE8D5
+#        binding_mode       #16a085 #2C2C2C #F9FAF9
+#        urgent_workspace   #16a085 #FDF6E3 #E5201D
+#    }
+#}
+
 bar {
     id bar-0
 	i3bar_command i3bar
-	status_command i3blocks -c ~/.config/i3blocks/config
+	status_command /usr/bin/bumblebee-status -m \
+    load memory disk datetime layout battery\
+    -p datetime.format="%d/%m/%Y %H:%M" \
+    -t gruvbox-powerline
 	position top
 	tray_output primary
-	bindsym button4 nop
-	bindsym button5 nop
+	#bindsym button4 nop
+	#bindsym button5 nop
     workspace_buttons       yes
 	strip_workspace_numbers yes
     font pango:Hack 12
-
-    colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
-
-        #class             border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
 }
 
 #hide/unhide i3status bar
