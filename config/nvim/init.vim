@@ -87,6 +87,7 @@ Plugin 'junegunn/fzf' "File fuzzer
 Plugin 'tpope/vim-fugitive' "Vim plugin for Git.
 Plugin 'tpope/vim-surround' "Surround brackets or quotes
 Plugin 'preservim/nerdtree' "Browse files from Vim
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "Browse files from Vim
 Plugin 'vimwiki/vimwiki' "Keep notes organized
 Plugin 'ryanoasis/vim-devicons' "Icons on Vim
 Plugin 'wadackel/vim-dogrun' "Colorscheme
@@ -97,6 +98,8 @@ Plugin 'whatyouhide/vim-gotham' "Coloscheme Gotham by sudoers
 Plugin 'LukeGoodsell/nextflow-vim'
 Plugin 'thecodesmith/vim-groovy'
 Plugin 'sheerun/vim-polyglot' "A collection of language packs for Vim.
+Plugin 'tpope/vim-fugitive' "A git wrapper so awesome
+Plugin 'airblade/vim-gitgutter' "A git wrapper so awesome
 call vundle#end() " Stop Vundle
 
 " Plugin Nerdtree settings
@@ -130,10 +133,19 @@ let g:onedark_colors = {
 " colorscheme delek
 colorscheme tokyonight
 " set background=dark "Dark background disabled
-let g:lightline = {'colorscheme' : 'tokyonight'} " Lightline colorscheme theme
+
+let g:lightline = {
+      #\ 'colorscheme': 'tokyonight',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 "Plugin Vimwiki settings
 let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown', 'ext': '.md'}] " Define vimwiki path
 au FileType vimwiki setlocal shiftwidth=6 tabstop=4 noexpandtab " Define vimwifi format
 let g:vimwiki_url_maxsave=0 "Vimwiki url maxsave?`
-
