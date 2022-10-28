@@ -9,7 +9,7 @@ let mapleader="," "Master KEY for vim
 set ttyfast "Optimize for fast terminal connections
 set t_Co=256 " Set terminal colors
 set termguicolors "Set terminal
-colors set foldmethod=manual "Code folding
+set foldmethod=manual "Code folding
 set autoindent "Autoidentation set cindent "Colum identation
 " let g:indentLine_char = '⦙' " Set identation line for YAML
 set tabstop=4 " number of spaces that a tab character in the file counts for.
@@ -96,7 +96,6 @@ Plugin 'ghifarit53/tokyonight-vim' "Colorscheme
 Plugin 'ful1e5/onedark.nvim' " Coloscheme
 Plugin 'whatyouhide/vim-gotham' "Coloscheme Gotham by sudoers
 Plugin 'sheerun/vim-polyglot' "A collection of language packs for Vim.
-Plugin 'tpope/vim-fugitive' "A git wrapper so awesome
 Plugin 'airblade/vim-gitgutter' "A git wrapper so awesome
 Plugin 'ellisonleao/gruvbox'
 call vundle#end() " Stop Vundle
@@ -134,7 +133,7 @@ colorscheme tokyonight
 " set background=dark "Dark background disabled
 
 let g:lightline = {
-      #\ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'tokyonight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
