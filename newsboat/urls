@@ -1,0 +1,15 @@
+https://hnrss.org/frontpage "~Hacker News Frontpage" nes
+https://hnrss.org/newest "~Hacker News Newest" news
+https://feeds.feedburner.com/TheHackersNews "~The Hacker News Feed" news
+https://www.realworldtech.com/feed/rss/ "~Real World Tech" news
+https://lwn.net/headlines/rss "~LWN Headlines"
+https://spectrum.ieee.org/static/rss "~WEB - IEEE SPECTRUM" news
+http://calpaterson.com/calpaterson.rss "~BLOG: Cal Paterson" blog
+https://suckless.org/atom.xml "~BLOG: Suckless ORG" blog
+https://codemadness.org/rss_content.xml "~BLOG: Suckless ORG - Hiltjo" blog
+https://miguelmota.com/blog/index.xml "~BLOG: Miguel Mota" blog
+https://lukesmith.xyz/rss.xml "~BLOG: LukeSmith" blog
+https://googleprojectzero.blogspot.com/feeds/posts/default "~BLOG: GOOGLE PROJECT ZERO"  blog
+https://blog.zsec.uk/rss/ "~BLOG: Zerosec" blog
+https://opensource.com/feed "~BLOG: Opensource" blog
+http://thezugzwangblog.com/feed/ "~BLOG: CHESS - ZUGZWANG Blog" chess blog
