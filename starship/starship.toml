@@ -56,6 +56,10 @@ style = "bold italic red"
 #[aws]
 #symbol = " "
 
+[gcloud]
+symbol = " "
+disabled = true
+
 [conda]
 symbol = " "
 
