@@ -234,7 +234,7 @@ mode "resize" {
 
 #i3lock
 bindsym $mod+Shift+i exec setxkbmap es
-bindsym $mod+Shift+u exec setxkbmap us
+bindsym $mod+Shift+u exec "setxkbmap -model pc104 -layout us,es -variant altgr-intl -option grp:rctrl_rshift_toggle &"
 
 #STYLE
 new_window pixel 1
@@ -257,7 +257,7 @@ exec --no-startup-id keepassxc
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id setcursor
 exec_always --no-startup-id pasystray
-exec_always setxkbmap -model pc104 -layout us,es -variant altgr-intl, -option grp:rctrl_rshift_toggle &
+exec_always setxkbmap -model pc104 -layout us,es -variant altgr-intl, -option grp:rctrl_rshift_toggle'
 exec eval `ssh-agent -s`
 exec_always --no-startup-id autotiling
 
