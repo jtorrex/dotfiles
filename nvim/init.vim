@@ -87,7 +87,7 @@ Plugin 'junegunn/fzf' "File fuzzer
 Plugin 'tpope/vim-fugitive' "Vim plugin for Git.
 Plugin 'tpope/vim-surround' "Surround brackets or quotes
 Plugin 'preservim/nerdtree' "Browse files from Vim
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "Browse files from Vim
+" Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "Browse files from Vim
 Plugin 'vimwiki/vimwiki' "Keep notes organized
 Plugin 'ryanoasis/vim-devicons' "Icons on Vim
 Plugin 'wadackel/vim-dogrun' "Colorscheme
