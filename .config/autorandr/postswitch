@@ -1,0 +1,3 @@
+#!/bin/sh
+nitrogen --set-scaled ~/Sync/wallpapers/current
+notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
