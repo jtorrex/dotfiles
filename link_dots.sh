@@ -109,3 +109,7 @@ ln -s $(echo $PWD)/.config/cointop ~/.config/
 echo "Configure dunst"
 rm -rf ~/.config/dunst
 ln -s $(echo $PWD)/.config/dunst ~/.config/
+
+echo "Configure zathura"
+rm -rf ~/.config/zathura
+ln -s $(echo $PWD)/.config/zathura ~/.config/
