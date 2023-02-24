@@ -41,19 +41,8 @@ antigen apply
 autoload -Uz compinit
 compinit
 
-#ALIAS
-alias vi='nvim'
-alias vim='nvim'
-alias vimwiki='vim ~/Sync/wiki/index.md'
-alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-alias repairqemu="sudo rm -rf /etc/libvirt/qemu.old && sudo mv /etc/libvirt/qemu /etc/libvirt/qemu.old && sudo ln -s ~/VirtualMachines/qemu /etc/libvirt/qemu && sudo systemctl restart libvirtd"
-alias ssh="TERM=xterm-256color ssh"
-alias cdconfig="cd ~/.config/"
-alias cdwork="cd ~/Workspace/"
-alias cdrepos="cd ~/Workspace/repositories"
-alias themedark="alacritty-themes Belge"
-alias themelight="alacritty-themes Mostly-bright"
-alias startsession="~/.local/bin/start-session-init.sh"
+#Aliases
+source $HOME/.aliases
 
 # FUNCTIONS
 function pomo() {

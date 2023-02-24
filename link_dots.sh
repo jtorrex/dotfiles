@@ -18,13 +18,21 @@ echo "Configure VIM"
 rm -rf ~/.config/nvim
 ln -s $(echo $PWD)/.config/nvim ~/.config/nvim
 
-echo "Configure zshrc"
+echo "Configure tmux"
 rm -rf ~/.config/tmux
 ln -s $(echo $PWD)/.config/tmux ~/.config/tmux
 
 echo "Configure zshrc"
 rm -rf ~/.zshrc
 ln -s $(echo $PWD)/.zshrc ~/.zshrc
+
+echo "Configure zshenv"
+rm -rf ~/.zshenv
+ln -s $(echo $PWD)/.zshenv ~/
+
+echo "Configure aliases"
+rm -rf ~/.aliases
+ln -s $(echo $PWD)/.aliases ~/
 
 echo "Configure i3"
 rm -rf ~/.config/i3
