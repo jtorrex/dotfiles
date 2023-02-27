@@ -1,38 +1,30 @@
+[theme]
 theme = "plain"
-icons = "awesome"
 
-[[block]]
-block = "docker"
-interval = 2
-format = "{running}/{total}"
+[icons]
+icons = "awesome6"
 
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}/{5m}/{15m}"
+format = "$icon 1min avg: $1m.eng(w:4)"
 
 [[block]]
 block = "memory"
-format_mem = "{mem_used}/{mem_total}({mem_used_percents})"
-format_swap = "{swap_used}/{swap_total}({swap_used_percents})"
-display_type = "memory"
-icons = true
-clickable = true
+format = "$icon $mem_used_percents.eng(w:1) "
+format_alt = " $icon_swap $swap_free.eng(w:3,u:B,p:M)/$swap_total.eng(w:3,u:B,p:M)($swap_used_percents.eng(w:2)) "
 interval = 5
 warning_mem = 80
-warning_swap = 80
-critical_mem = 95
-critical_swap = 95
+critical_mem = 90
 
 [[block]]
 block = "disk_space"
-path = "/"
 info_type = "available"
-format = "{icon} {used}/{total}" 
-unit = "GB"
-interval = 20
-warning = 20.0
+alert_unit = "GB"
 alert = 10.0
+warning = 20.0
+format = "$icon $available "
+format_alt = " $icon $available / $total "
 
 [[block]]
 block = "keyboard_layout"
@@ -42,22 +34,15 @@ interval = 15
 [[block]]
 block = "time"
 interval = 5
-format = "%a %d/%m %R"
+[block.format]
+full = "$icon $timestamp.datetime(f:'%a %Y-%m-%d %R %Z', l:fr_BE) "
+short = "$icon $timestamp.datetime(f:%R) "
 
 [[block]]
 block = "custom"
-command = "echo '\uf0ac ' `curl ifconfig.me`" # assumes fontawesome icons
+command = "echo '\uf0ac' `curl ifconfig.me`" # assumes fontawesome icons
 interval = 60
 
 [[block]]
 block = "net"
-format = "{ssid}"
-
-[[block]]
-block = "custom"
-command = "echo \uf011" # assumes fontawesome icons
-on_click = "systemctl `echo -e 'suspend\npoweroff\nreboot' | dmenu`"
-interval = "once"
-#[[block]]
-#block = "battery"
-#if_command = "test -e /sys/class/power_supply/BAT0"
+format = "$icon {$signal_strength $ssid $frequency|Wired} via $device "
