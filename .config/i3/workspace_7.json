@@ -1,0 +1,68 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.13828125,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1387,
+               "width": 687,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "Virtual Machine Manager",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Virt\\-manager$",
+               "instance": "^virt\\-manager$",
+               "machine": "^arch$",
+               "title": "^Virtual\\ Machine\\ Manager$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": 0.86171875,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1387,
+               "width": 1257,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "win10-x64 on QEMU/KVM",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Virt\\-manager$",
+               "instance": "^virt\\-manager$",
+               "machine": "^arch$",
+               "title": "^win10\\-x64\\ on\\ QEMU\\/KVM$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

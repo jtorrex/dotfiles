@@ -1,0 +1,79 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.565234375,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1413,
+                       "width": 1411,
+                       "x": 1,
+                       "y": 26
+                    },
+                    "marks": [],
+                    "name": "Holded - Google Chrome",
+                    "percent": 1,
+                    "swallows": [
+                       {
+                       "class": "^Google\\-chrome$",
+                       "instance": "^google\\-chrome$",
+                       "machine": "^arch$",
+                       "title": "^Holded\\ \\-\\ Google\\ Chrome$",
+                       "window_role": "^browser$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "marks": [],
+            "percent": 0.434765625,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1415,
+                       "width": 2560,
+                       "x": 10,
+                       "y": 35
+                    },
+                    "marks": [],
+                    "name": "Minerva DevOps Team - Chat - Google Chrome",
+                    "percent": 1,
+                    "swallows": [
+                       {
+                       "class": "^Google\\-chrome$",
+                       "instance": "^google\\-chrome$",
+                       "machine": "^arch$",
+                       "title": "^Minerva\\ DevOps\\ Team\\ \\-\\ Chat\\ \\-\\ Google\\ Chrome$",
+                       "window_role": "^browser$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+

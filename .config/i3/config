@@ -233,8 +233,8 @@ mode "resize" {
 }
 
 #i3lock
-bindsym $mod+Shift+i exec setxkbmap es
-bindsym $mod+Shift+u exec setxkbmap us
+bindsym $mod+Shift+u exec "setxkbmap setxkbmap -model pc104 -layout us -variant altgr-intl, -option grp:rctrl_rshift_toggle"
+bindsym $mod+Shift+i exec "setxkbmap setxkbmap -model pc104 -layout es -variant altgr-intl, -option grp:rctrl_rshift_toggle"
 
 #STYLE
 new_window pixel 1
@@ -254,10 +254,11 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id syncthing
 exec --no-startup-id keepassxc
+exec --no-startup-id xautolock -time 6 -locker lock -notify 10 -notifier 'notify-send "Screen will lock in 10 seconds."'
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id setcursor
 exec_always --no-startup-id pasystray
-exec_always setxkbmap -model pc104 -layout us,es -variant altgr-intl, -option grp:rctrl_rshift_toggle &
+exec_always --no-startup-id setxkbmap -model pc104 -layout us,es -variant altgr-intl, -option grp:rctrl_rshift_toggle &
 exec eval `ssh-agent -s`
 exec_always --no-startup-id autotiling
 
@@ -269,6 +270,17 @@ exec --no-startup-id zsh -c 'tmux start-server'
 #exec xrandr &
 
 #for_window [class="^.*"] border pixel 0
+
+
+# In your i3 configuration file, you can autostart i3-msg like this:
+# (Note that those lines will quickly become long, so typically you would store
+#  them in a script with proper indentation.)
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.config/i3/workspace-3.json'"
+exec --no-startup-id "i3-msg 'workspace 4; append_layout ~/.config/i3/workspace-4.json'"
+exec --no-startup-id "i3-msg 'workspace 7; append_layout ~/.config/i3/workspace-7.json'"
+exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/workspace-8.json'"
 
 bar {
     font pango:DejaVu Sans Mono, FontAwesome 12
