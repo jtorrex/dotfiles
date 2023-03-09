@@ -151,7 +151,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-autocmd VimEnter * NERDTree | wincmd p " Start NERDTree and put the cursor back in the other window.
+"  autocmd VimEnter * NERDTree | wincmd p " Start NERDTree and put the cursor back in the other window.
 let NERDTreeMinimalUI = 1 " Make NERDTree pretty
 let NERDTreeDirArrows = 1 " Make NERDTree pretty 2
 let NERDTreeShowHidden=1 "NERDTree shows hidden files
