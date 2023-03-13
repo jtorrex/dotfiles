@@ -17,14 +17,21 @@ then
 
     tmux new-session -d -s $PER_SESSION
     tmux send-keys 'clear && neomutt' C-m
-    tmux split-window -h
+    tmux split-window -hf
     tmux send-keys 'ikhal' C-m # Switch to bind script?
     tmux split-window
     tmux send-keys 'todo list' C-m # Switch to bind script
 
     tmux new-window -t $PER_SESSION:2
     tmux send-keys 'ranger' C-m # Switch to bind script?
-    tmux split-window -h
+    tmux split-window -hf
+    tmux send-keys 'ncmpcpp' C-m # Switch to bind script?
+    tmux split-window
+    tmux send-keys 'newsboat' C-m # Switch to bind script?
+
+    tmux new-window -t $PER_SESSION:3
+    tmux send-keys 'ranger' C-m # Switch to bind script?
+    tmux split-window -hf
     tmux send-keys 'ncmpcpp' C-m # Switch to bind script?
     tmux split-window
     tmux send-keys 'newsboat' C-m # Switch to bind script?
@@ -45,7 +52,7 @@ then
 
     tmux new-session -d -s $SSH_SESSION
     tmux send-keys 'ssh vps' C-m
-    tmux split-window -h
+    tmux split-window -hf
     tmux send-keys 'ssh proxmox' C-m # Switch to bind script?
     tmux split-window
     tmux send-keys 'ssh fileserver' C-m
