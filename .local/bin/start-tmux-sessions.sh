@@ -30,11 +30,11 @@ then
     tmux send-keys 'newsboat' C-m # Switch to bind script?
 
     tmux new-window -t $PER_SESSION:3
-    tmux send-keys 'ranger' C-m # Switch to bind script?
+    tmux send-keys 'htop' C-m # Switch to bind script?
     tmux split-window -hf
-    tmux send-keys 'ncmpcpp' C-m # Switch to bind script?
+    tmux send-keys 'cointop' C-m # Switch to bind script?
     tmux split-window
-    tmux send-keys 'newsboat' C-m # Switch to bind script?
+    tmux send-keys 'netstat' C-m # Switch to bind script?
 fi
 
 # Only create tmux session if it doesn't already exist
