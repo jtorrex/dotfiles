@@ -237,10 +237,10 @@ bindsym $mod+Shift+u exec "setxkbmap setxkbmap -model pc104 -layout us -variant 
 bindsym $mod+Shift+i exec "setxkbmap setxkbmap -model pc104 -layout es -variant altgr-intl, -option grp:rctrl_rshift_toggle"
 
 #STYLE
-new_window pixel 1
+new_window pixel 2
 new_float normal
 hide_edge_borders smart
-default_floating_border pixel 1
+default_floating_border pixel 2
 
 ############################################################################################3
 #INIT SERVICES AFTER i3
@@ -303,7 +303,7 @@ bindsym $mod+Shift+m bar mode dock bar-0
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-client.focused          #0088CC #0088CC #ffffff #dddddd
+ client.focused          #0089CC #0088CC #ffffff #dddddd
 client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
 client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
