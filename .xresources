@@ -1,15 +1,13 @@
-!    *----------------------------*
-!    |  Dotfiles  -  .Xresources  |
-!    *----------------------------*
-! This files contains configuration for:
-!  * terminal colours
-!  * urxvt
-
 ! === Font ===
 ! *font:          xft:inconsolatazi4:size=18
 !Inconsolata
-#URxvt.font: xft:Hack-Regular-14
-#URxvt.boldFont: xft:Hack-Bold-14
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba:      rgb
+Xft.hintstyle: hintfull
+Xft.dpi:       96
 
 !Inconsolata-g
 !URxvt.font: xft:InconsolataG-10
