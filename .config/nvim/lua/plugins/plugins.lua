@@ -27,6 +27,11 @@ require('packer').startup(function()
   use 'akinsho/bufferline.nvim'
   use 'nvim-lualine/lualine.nvim'
   use 'folke/tokyonight.nvim'
+  use 'edluffy/hologram.nvim'
+
+  require('hologram').setup{
+    auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+  }
 
   -- General dev
   use 'neovim/nvim-lspconfig'
@@ -96,13 +101,5 @@ require('packer').startup(function()
     run = ":Neorg sync-parsers",
     requires = "nvim-lua/plenary.nvim",
   }
-
-  use {'edluffy/hologram.nvim'}
-  -- Use
-  -- Use
-  -- Use
-  -- Use
-  -- Use
-  -- Use
 
 end)
