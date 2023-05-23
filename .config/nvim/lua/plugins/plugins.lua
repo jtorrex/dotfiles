@@ -1,4 +1,6 @@
-require('packer').startup(function()
+vim.cmd [[packadd packer.nvim]]
+
+require('packer').startup(function(use)
   -- Use Packer
   use 'wbthomason/packer.nvim'
 
@@ -81,25 +83,25 @@ require('packer').startup(function()
     end
   }
 
-  use {
-    "nvim-neorg/neorg",
-    config = function()
-        require('neorg').setup {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.norg.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        workspaces = {
-                            notes = "~/Sync/neorg",
-                        },
-                    },
-                },
-            },
-        }
-    end,
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-  }
+  --use {
+  --  "nvim-neorg/neorg",
+  --  config = function()
+  --      require('neorg').setup {
+  --          load = {
+  --              ["core.defaults"] = {}, -- Loads default behaviour
+  --              ["core.concealer"] = {}, -- Adds pretty icons to your documents
+  --              ["core.dirman"] = { -- Manages Neorg workspaces
+  --                  config = {
+  --                      workspaces = {
+  --                          notes = "~/Sync/neorg",
+  --                      },
+  --                  },
+  --              },
+  --          },
+  --      }
+  --  end,
+  --  run = ":Neorg sync-parsers",
+  --  requires = "nvim-lua/plenary.nvim",
+  --}
 
 end)
