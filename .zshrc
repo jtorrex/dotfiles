@@ -11,8 +11,10 @@ ZSH_THEME="robbyrussell"
 # Export editor for ssh
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='nvim'
+   export KUBE_EDITOR=nvim
 else
    export EDITOR='nvim'
+   export KUBE_EDITOR=nvim
 fi
 
  # Enable ssh-agent
@@ -26,12 +28,17 @@ fi
 
 #ANTIGEN
 source ~/.antigen.sh
-antigen bundle git
-antigen bundle tmux
+antigen bundle ansible
+antigen bundle aws
+antigen bundle colored-man-pages
 antigen bundle docker
-antigen bundle helm
 antigen bundle fzf
+antigen bundle git
+antigen bundle helm
+antigen bundle history
 antigen bundle kubectl
+antigen bundle terraform
+antigen bundle tmux
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
@@ -43,21 +50,6 @@ compinit
 
 #Aliases
 source $HOME/.aliases
-
-# FUNCTIONS
-function pomo() {
-    arg1=$1
-    shift
-    args="$*"
-
-    min=${arg1:?Example: pomo 15 Take a break}
-    sec=$((min * 60))
-    msg="${args:?Example: pomo 15 Take a break}"
-
-    while true; do
-        date '+%H:%M' && sleep "${sec:?}" && notify-send -u critical -t 0 -a pomo "${msg:?}"
-    done
-}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
