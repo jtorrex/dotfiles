@@ -18,6 +18,9 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Tab open
+keymap("n", "<C-t>", ":tabedit<CR>", opts)
+
 -- NvimTree
 keymap("n", "<leader>n", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)
