@@ -1,5 +1,5 @@
 vim.cmd([[
-  colorscheme tokyonight
+  colorscheme tokyonight-night
 ]])
 
 -- vim.cmd([[
