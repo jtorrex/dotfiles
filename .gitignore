@@ -7,3 +7,4 @@
 .config/mpd/sticker.sql
 .config/ncmpcpp/error.log
 .config/newsboat/urls
+.config/alacritty/alacritty.yml.*.bak
