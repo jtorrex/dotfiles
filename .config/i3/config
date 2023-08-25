@@ -261,6 +261,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id setcursor
 exec_always --no-startup-id setxkbmap -model pc104 -layout us,es -variant altgr-intl, -option grp:rctrl_rshift_toggle &
 exec_always --no-startup-id autotiling
+exec_always --no-startup-id nitrogen --set-scaled Sync/wallpapers/current
 
 exec eval `ssh-agent -s`
 
