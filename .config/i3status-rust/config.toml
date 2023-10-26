@@ -7,7 +7,7 @@ icons = "awesome6"
 [[block]]
 block = "load"
 interval = 1
-format = "$icon 1min avg: $1m.eng(w:4)"
+format = "$icon $1m.eng(w:4)"
 
 [[block]]
 block = "memory"
@@ -35,7 +35,7 @@ interval = 15
 block = "time"
 interval = 5
 [block.format]
-full = "$icon $timestamp.datetime(f:'%a %Y-%m-%d %R %Z', l:en_US) "
+full = "$icon $timestamp.datetime(f:'%Y/%m/%d %a %R %Z', l:en_US) "
 short = "$icon $timestamp.datetime(f:%R) "
 
 [[block]]
