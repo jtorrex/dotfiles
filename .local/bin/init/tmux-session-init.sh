@@ -25,14 +25,14 @@ then
     tmux new-window -t $PER_SESSION:2
     tmux send-keys 'ranger' C-m # Switch to bind script?
     tmux split-window -hf
-    tmux send-keys 'ncmpcpp' C-m # Switch to bind script?
+    tmux send-keys 'mpd ~/.config/mpd/mpd.conf && ncmpcpp' C-m # Switch to bind script?
     tmux split-window
     tmux send-keys 'newsboat' C-m # Switch to bind script?
 
     tmux new-window -t $PER_SESSION:3
-    tmux send-keys 'htop' C-m # Switch to bind script?
+    tmux send-keys 'btop' C-m # Switch to bind script?
     tmux split-window -hf
-    tmux send-keys 'cointop' C-m # Switch to bind script?
+    tmux send-keys 'ls' C-m # Switch to bind script?
     tmux split-window
     tmux send-keys 'netstat' C-m # Switch to bind script?
 fi
