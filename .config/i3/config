@@ -45,7 +45,7 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'i3: brightnes
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'i3: brightness down'"
 
 # Start Applications
-bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F1 exec thunar
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id flameshot
 bindsym $mod+Print --release exec --no-startup-id flameshot
@@ -255,13 +255,13 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id syncthing
 exec --no-startup-id keepassxc
 exec --no-startup-id pasystray
-exec --no-startup-id xautolock -time 5 -locker blurlock -notify 10 -notifier 'notify-send "Screen will lock in 10 seconds."'
 
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id setcursor
 exec_always --no-startup-id setxkbmap -model pc104 -layout us,es -variant altgr-intl, -option grp:rctrl_rshift_toggle &
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id nitrogen --set-scaled Sync/wallpapers/current
+exec_always --no-startup-id xautolock -time 3 -locker blurlock -notify 10 -notifier 'notify-send "Screen will lock in 10 seconds."'
 exec eval `ssh-agent -s`
 
 #TMUX initialization
