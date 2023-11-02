@@ -28,7 +28,7 @@ format_alt = " $icon $available / $total "
 
 [[block]]
 block = "keyboard_layout"
-driver = "setxkbmap"
+driver = "localebus"
 interval = 15
 
 [[block]]
