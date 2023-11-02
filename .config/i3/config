@@ -285,7 +285,7 @@ exec --no-startup-id "i3-msg 'workspace 7; append_layout ~/.config/i3/workspace-
 exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/workspace-8.json'"
 
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 12
+    font pango:DejaVu Sans Serif, FontAwesome 12
     position top
     status_command i3status-rs ~/.config/i3status-rust/config.toml
     colors {
