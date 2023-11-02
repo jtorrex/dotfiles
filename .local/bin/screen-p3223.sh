@@ -1,4 +1,2 @@
 #!/bin/bash
-
-xrdb -merge ~/.xresources-hidpi
-autorandr -l thinkpad-p3223qe-only
+wlr-randr --output DP-3 --mode 3840x2160 --scale 1.75 --on --output eDP-1 --off
