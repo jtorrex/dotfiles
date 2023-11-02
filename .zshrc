@@ -1,31 +1,3 @@
-#ZSH PREFS
-export TERM=xterm-256color
-export GOPATH=$HOME/.go/
-export PATH="$HOME/bin:$PATH"
-export NOTMUCH_CONFIG=~/.config/notmuch/notmuch
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-ZSH_THEME="robbyrussell"
-
-# Export editor for ssh
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
-   export KUBE_EDITOR=nvim
-else
-   export EDITOR='nvim'
-   export KUBE_EDITOR=nvim
-fi
-
- # Enable ssh-agent
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-thing
-fi
-
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)"
-fi
-
 #ANTIGEN
 source ~/.antigen.sh
 antigen bundle ansible
