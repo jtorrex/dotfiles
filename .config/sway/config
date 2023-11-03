@@ -111,11 +111,13 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec bemenu-run
 
 # toggle flameshot
-bindsym $mod+Shift+x exec slurp | grim -g - ~/$(date +'ss%y-%m-%d-%H%M%S.png')
+#bindsym $mod+Shift+x exec slurp | grim -g - ~/$(date +'ss%y-%m-%d-%H%M%S.png')
+bindsym $mod+Shift+x exec grim -g "$(slurp)" - | swappy -f -
 
 # Start Applications
 bindsym $mod+F1 exec thunar
 bindsym $mod+F2 exec pavucontrol
+bindsym $mod+F9 exec screen-laptop.sh
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -221,32 +223,19 @@ mode "$mode_print" {
 }
 
 # Mode System
-set $mode_system system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
-bindsym $mod+0 mode "$mode_system"
-mode "$mode_system" {
-    bindsym l exec swaylock; mode default
-    bindsym e exec swaymsg exit; mode default
-    bindsym s exec systemctl suspend; mode default
-    bindsym h exec systemctl hibernate; mode default
-    bindsym r exec reboot; mode default
-    bindsym x exec poweroff; mode default
-    bindsym Return mode default
-    bindsym Escape mode default
-    bindsym $mod+x mode default
-}
+bindsym $mod+0 exec wlogout
 
 # Idle management
 exec swayidle -w \
-       timeout 1200 'swaylock' \
-       timeout 2400 'systemctl suspend' \
-       before-sleep 'swaylock'
+    timeout 1200 'swaylock' \
+    before-sleep 'swaylock'
 
 # Keyboard
 input type:keyboard {
     xkb_layout us
     xkb_variant altgr-intl
     xkb_options grp:rctrl_rshift_toggle
-    repeat_delay 200
+    repeat_delay 300
 }
 
 input type:touchpad {
@@ -263,6 +252,7 @@ exec keepassxc
 exec mako
 exec eval `ssh-agent -s`
 exec mako
+exec_always kanshi
 exec_always nm-applet
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
