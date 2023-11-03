@@ -16,7 +16,7 @@ workspace_auto_back_and_forth yes
 set $mod Mod4
 floating_modifier $mod
 
-bindsym $mod+d exec rofi -show combi -show-icons
+bindsym $mod+d exec rofi -show run
 #bindsym $mod+d exec wofi --show combi --allow-images
 #bindsym $mod+d exec bemenu
 
@@ -224,7 +224,7 @@ mode "$mode_print" {
 set $mode_system system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
 bindsym $mod+0 mode "$mode_system"
 mode "$mode_system" {
-    bindsym l exec swaylock -F; mode default
+    bindsym l exec swaylock; mode default
     bindsym e exec swaymsg exit; mode default
     bindsym s exec systemctl suspend; mode default
     bindsym h exec systemctl hibernate; mode default
@@ -237,10 +237,9 @@ mode "$mode_system" {
 
 # Idle management
 exec swayidle -w \
-       timeout 1200 'swaylock -f -c 000000 -i ~/Sync/wallpapers/current' \
-       timeout 1260 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+       timeout 1200 'swaylock' \
        timeout 2400 'systemctl suspend' \
-       before-sleep 'swaylock -f -c 000000 -i ~/Sync/wallpapers/current'
+       before-sleep 'swaylock'
 
 # Keyboard
 input type:keyboard {
@@ -256,14 +255,15 @@ input type:touchpad {
 }
 
 # Autostart applications
-exec gammastep
+exec_always autotiling
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec gammastep
 exec syncthing
 exec keepassxc
 exec mako
-exec_always autotiling
 exec eval `ssh-agent -s`
 exec mako
+exec_always nm-applet
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #TMUX initialization
@@ -283,7 +283,10 @@ client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
 
+#exec_always ~/.config/waybar/waybar.sh
+
 bar {
-    position top
-swaybar_command waybar
+    swaybar_command waybar
 }
+
+include /etc/sway/config.d/*
