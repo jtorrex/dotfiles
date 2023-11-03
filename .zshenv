@@ -6,7 +6,8 @@ export ZSH_THEME="robbyrussell"
 # ENV
 export TERM=xterm-256color
 export PATH="$HOME/bin:$PATH"
-export XDG_SESSION_TYPE=wayland 
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
 export GDK_BACKEND=wayland
 export XDG_CONFIG_HOME=~/.config
 export PATH="$PATH:/opt/local/bin:$HOME/.local/bin"
