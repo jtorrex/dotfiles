@@ -7,10 +7,10 @@ gaps inner 3
 smart_gaps on
 smart_borders no_gaps
 
-workspace_auto_back_and_forth yes
 # focus the parent container
 # bindsym $mod+a focus parent
-# bindsym $mod+Tab workspace back_and_forth
+workspace_auto_back_and_forth yes
+bindsym $mod+Tab workspace back_and_forth
 
 # set mod key (Mod1=Alt, Mod4=Super)
 set $mod Mod4
@@ -92,14 +92,14 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Media keys
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Sreen brightness
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # Screen saver
 bindsym XF86ScreenSaver exec block
@@ -244,19 +244,20 @@ input type:touchpad {
 }
 
 # Autostart applications
-exec_always autotiling
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec gammastep
 exec syncthing
 exec keepassxc
 exec mako
-exec eval `ssh-agent -s`
-exec mako
+
+exec_always autotiling
 exec_always kanshi
 exec_always nm-applet
+exec_always blueman-applet
+exec_always gammastep
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
-#TMUX initialization
+#Services initialization
+exec eval `ssh-agent -s`
 exec --no-startup-id zsh -c 'tmux start-server'
 
 # Wallapaper
@@ -272,8 +273,6 @@ client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
-
-#exec_always ~/.config/waybar/waybar.sh
 
 bar {
     swaybar_command waybar
