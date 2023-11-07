@@ -1,0 +1,21 @@
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+
+ZSH_CONFIG="${HOME}/.config/zsh"
+ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
+DISABLE_AUTO_TITLE=true
+
+fpath+=~/.zfunc
+
+source "$ZSH_CONFIG/aliases.zsh"
+source "$ZSH_CONFIG/antidote/antidote.zsh"
+antidote load "$ZSH_CONFIG/zsh_plugins.txt"
+
+# Enable complex autocompletion
+autoload -Uz compinit
+compinit
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(starship init zsh)"
