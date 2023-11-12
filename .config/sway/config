@@ -243,7 +243,7 @@ input type:touchpad {
 }
 
 # Autostart applications
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec syncthing
 exec keepassxc
 exec mako
@@ -255,7 +255,7 @@ exec_always gammastep
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #Services initialization
-exec --no-startup-id eval `ssh-agent -s`
+exec $(ssh-agent -s)
 exec --no-startup-id zsh -c 'tmux start-server'
 
 # Wallapaper
