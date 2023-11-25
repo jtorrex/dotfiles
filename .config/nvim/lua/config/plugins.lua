@@ -3,16 +3,16 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+  PACKER_BOOTSTRAP = fn.system({
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  })
+  print("Installing packer close and reopen Neovim...")
+  vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -26,16 +26,16 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+  return
 end
 
 -- Have packer use a popup window
 packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+  display = {
+    open_fn = function()
+      return require("packer.util").float({ border = "rounded" })
+    end,
+  },
 })
 
 -- Install your plugins here
@@ -43,29 +43,44 @@ return packer.startup(function(use)
 
   -- Plugins Start Here
   use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+  use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+  use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
   -- Sintax Helpers
   use("fatih/vim-go")
-	-- use("nvim-treesitter/nvim-treesitter")
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
+
+  -- use("nvim-treesitter/nvim-treesitter")
+  use({
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end,
+  })
+
+  -- Telekasten
+  use {
+    'renerocksai/telekasten.nvim',
+    requires = {'nvim-telescope/telescope.nvim'}
+  }
+
+  require('telekasten').setup({
+    home = vim.fn.expand("~/Sync/wiki"), -- Put the name of your notes directory here
+  })
+
+  use('nvim-telescope/telescope-media-files.nvim')
+
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   -- File explorer
   use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
-		},
-		config = function()
-			require("nvim-tree").setup({})
-		end,
-	})
+    "kyazdani42/nvim-tree.lua",
+    requires = {
+      "kyazdani42/nvim-web-devicons", -- optional, for file icon
+    },
+    config = function()
+      require("nvim-tree").setup({})
+    end,
+  })
 
   -- IAC and Config Mgmt Plugins
   use("hashivim/vim-terraform")
@@ -85,18 +100,18 @@ return packer.startup(function(use)
 
   -- Git
   use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup({})
-		end,
-	})
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup({})
+    end,
+  })
 
-	use({
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup({})
-		end,
-	})
+  use({
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup({})
+    end,
+  })
 
   -- CMP Plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -123,54 +138,54 @@ return packer.startup(function(use)
   use({ "kevinhwang91/nvim-hlslens" })
 
   -- Better escaping
-  	use({
-  		"max397574/better-escape.nvim",
-  		event = { "InsertEnter" },
-  		config = function()
-  			require("better_escape").setup({
-  				mapping = { "ii", "jj", "jk", "kj" },
-  				timeout = vim.o.timeoutlen,
-  				keys = "<ESC>",
-  			})
-  		end,
-  	})
+  use({
+    "max397574/better-escape.nvim",
+    event = { "InsertEnter" },
+    config = function()
+      require("better_escape").setup({
+        mapping = { "ii", "jj", "jk", "kj" },
+        timeout = vim.o.timeoutlen,
+        keys = "<ESC>",
+      })
+    end,
+  })
 
   -- Better Scroll
   use({
-  	"karb94/neoscroll.nvim",
-  	config = function()
-  		require("neoscroll").setup({
-  			mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
-  		})
-  	end,
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup({
+        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+      })
+    end,
   })
 
   -- Boost startup time
   use({
-  	"nathom/filetype.nvim",
-  	config = function()
-  		vim.g.did_load_filetypes = 1
-  	end,
+    "nathom/filetype.nvim",
+    config = function()
+      vim.g.did_load_filetypes = 1
+    end,
   })
 
   -- Cursorhold fix
   use({
-  	"antoinemadec/FixCursorHold.nvim",
-  	event = "BufRead",
-  	config = function()
-  		vim.g.cursorhold_updatetime = 100
-  	end,
+    "antoinemadec/FixCursorHold.nvim",
+    event = "BufRead",
+    config = function()
+      vim.g.cursorhold_updatetime = 100
+    end,
   })
 
   -- Optimiser
   use({
-  	"lewis6991/impatient.nvim",
+    "lewis6991/impatient.nvim",
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- plugins end here
   if PACKER_BOOTSTRAP then
-  	require("packer").sync()
+    require("packer").sync()
   end
 
   -- Old config plugins
@@ -181,7 +196,6 @@ return packer.startup(function(use)
   -- Common new
   use 'tpope/vim-fugitive' -- Git commands
   use 'rhysd/vim-grammarous' -- grammar check
-
 
   -- Search
   use 'tpope/vim-surround' -- surround characters shortcuts
