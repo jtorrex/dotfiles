@@ -2,7 +2,7 @@
 add_newline = false
 
 # Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+scan_timeout = 5
 
 # Make prompt a single line instead of two lines
 [line_break]
@@ -19,7 +19,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](bold blue)@[$hostname](bold red) '
+format = '[$ssh_symbol](bold blue)@[$hostname](bold red)'
 trim_at = "."
 disabled = false
 
@@ -47,27 +47,6 @@ disabled = true
 [gcloud]
 symbol = " "
 disabled = true
-#
-#[conda]
-#symbol = " "
-#
-#[dart]
-#symbol = " "
-
-#[docker_context]
-#symbol = " "
-#format = "via [$symbol$context]($style)"
-#style = "blue bold"
-#only_with_files = true
-#detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
-#detect_folders = []
-#disabled = false
-#
-#[elixir]
-#symbol = ""
-#
-#[elm]
-#symbol = ""
 
 [git_branch]
 symbol = '🌱'
@@ -111,7 +90,7 @@ symbol = ""
 
 [python]
 symbol = "🐍"
-#pyenv_version_name = true
+pyenv_version_name = true
 format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
 style = "bold yellow"
 pyenv_prefix = "venv "
