@@ -33,8 +33,7 @@ alias ta='tmux attach'
 # less
 alias less='less --raw-control-chars'
 
-# diff
-alias diff='git diff --no-index'
+# diff alias diff='git diff --no-index'
 
 # feh
 alias feh='feh --scale-down --auto-zoom'
@@ -44,6 +43,11 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias vimwiki='vim ~/Sync/wiki/index.md'
+
+# kubectl
+
+alias k='kubectl'
+compdef __start_kubectl k
 
 # cheat
 cheat () {
