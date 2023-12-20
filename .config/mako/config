@@ -1,0 +1,3 @@
+max-visible=3
+on-button-left=dismiss
+on-button-right=invoke-default-action
