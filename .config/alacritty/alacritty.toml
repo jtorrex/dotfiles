@@ -1,0 +1,100 @@
+live_config_reload = true
+working_directory = "None"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 10
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 8000
+multiplier = 1
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window]
+decorations = "full"
+dynamic_padding = true
+dynamic_title = true
+opacity = 1 
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0
+
+[bell]
+animation = "EaseOutExpo"
+color = "#ffffff"
+duration = 0
+
+[colors.bright]
+black = "#575b70"
+blue = "#caa9fa"
+cyan = "#9aedfe"
+green = "#5af78e"
+magenta = "#ff92d0"
+red = "#ff6e67"
+white = "#e6e6e6"
+yellow = "#f4f99d"
+
+[colors.cursor]
+cursor = "#d8dee9"
+text = "#191919"
+
+[colors.normal]
+black = "#000000"
+blue = "#caa9fa"
+cyan = "#8be9fd"
+green = "#50fa7b"
+magenta = "#ff79c6"
+red = "#ff5555"
+white = "#bfbfbf"
+yellow = "#f1fa8c"
+
+[colors.primary]
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.selection]
+background = "#d8dee9"
+text = "#191919"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+vi_mode_style = "Block"
+
+[debug]
+log_level = "Warn"
+persistent_logging = false
+print_events = false
+render_timer = false
