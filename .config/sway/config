@@ -255,7 +255,6 @@ exec_always gammastep
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #Services initialization
-exec_always eval `ssh-agent -s`
 exec_always mpd -c ~/.config/mpd/mpd.conf
 exec --no-startup-id zsh -c 'tmux start-server'
 
