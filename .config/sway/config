@@ -258,7 +258,7 @@ exec_always gammastep
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #Services initialization
-exec_always mpd -c ~/.config/mpd/mpd.conf
+exec mpd -c '~/.config/mpd/mpd.conf'
 exec --no-startup-id zsh -c 'tmux start-server'
 
 # Wallapaper
@@ -268,7 +268,7 @@ exec_always swaybg -i ~/Sync/wallpapers/current -m fill
 bindsym $mod+m bar mode toggle
 bindsym $mod+Shift+m bar mode dock bar-0
 
-client.focused          #0089CC #ADFf2f #ffffff #ADFf2f
+client.focused          #0089CC #FF0000 #ffffff #ADFf2f
 client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
 client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
