@@ -202,4 +202,7 @@ return packer.startup(function(use)
   -- Search
   use 'tpope/vim-surround' -- surround characters shortcuts
 
+  -- Indentation
+  use "lukas-reineke/indent-blankline.nvim"
+
 end)
