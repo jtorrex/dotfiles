@@ -12,6 +12,7 @@ alias mkdir='mkdir -p -v'
 alias rmdir='rmdir -v'
 
 # git
+alias lg='lazygit'
 alias g='git'
 alias gs='git status --short'
 alias gS='git status'
