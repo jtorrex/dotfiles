@@ -46,10 +46,11 @@ return packer.startup(function(use)
   use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
-  -- Sintax Helpers
-  use("fatih/vim-go")
+  -- Telescope
+  use("nvim-telescope/telescope.nvim") -- Extendable fuzzy finder over lists
+  use('nvim-telescope/telescope-media-files.nvim')
 
-  -- use("nvim-treesitter/nvim-treesitter")
+  -- Autopairs for vim
   use({
     "windwp/nvim-autopairs",
     config = function()
@@ -57,23 +58,27 @@ return packer.startup(function(use)
     end,
   })
 
-  -- Telekasten
-  use {
+  -- Telekasten Wiki
+  use ({
     'renerocksai/telekasten.nvim',
-    requires = {'nvim-telescope/telescope.nvim'}
-  }
-
-  require('telekasten').setup({
-    home = vim.fn.expand("~/Sync/wiki"), -- Put the name of your notes directory here
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function ()
+      require('telekasten').setup({home = vim.fn.expand("~/Sync/wiki")})
+    end,
   })
 
-  use('nvim-telescope/telescope-media-files.nvim')
-
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
 
   use("renerocksai/calendar-vim")
 
-  -- File explorer
+  -- File explorer Tree
   use({
     "kyazdani42/nvim-tree.lua",
     requires = {
@@ -84,30 +89,15 @@ return packer.startup(function(use)
     end,
   })
 
-  -- IAC and Config Mgmt Plugins
-  use("hashivim/vim-terraform")
-
   -- Colorschemes
-  use('shaeinst/roshnivim-cs')
-  use("lunarvim/darkplus.nvim")
-  use("sainnhe/sonokai")
-  use("kyazdani42/nvim-web-devicons")
   use("ellisonleao/gruvbox.nvim")
   use("folke/tokyonight.nvim")
-  use('wadackel/vim-dogrun')
 
   -- Statusline
   use("nvim-lualine/lualine.nvim")
-  use 'akinsho/bufferline.nvim'
 
-  -- Git
-  use({
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup({})
-    end,
-  })
-
+  -- Git:
+  -- Super fast git decorations implemented purely in Lua.
   use({
     "lewis6991/gitsigns.nvim",
     config = function()
@@ -115,42 +105,29 @@ return packer.startup(function(use)
     end,
   })
 
-  -- CMP Plugins
+  -- Completion Plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
   use("hrsh7th/cmp-buffer") -- buffer completions
   use("hrsh7th/cmp-path") -- path completions
   use("hrsh7th/cmp-cmdline") -- cmdline completions
+  use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in language server client.
+  use("hrsh7th/cmp-nvim-lua") -- This source will complete neovim's Lua runtime API 
   use("saadparwaiz1/cmp_luasnip") -- snippet completions
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-nvim-lua")
+  use "lukas-reineke/cmp-rg" -- ripgrep source for nvim-cmp
 
-  -- LSP
+  -- LSP: Language Service Provider and extras
   use("neovim/nvim-lspconfig") -- enable LSP
-  use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-  use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters
+  use("fatih/vim-go")  -- Go language Support
 
-  -- Snippets
-  use("L3MON4D3/LuaSnip") --snippet engine
-  use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-  -- rg
-  use "lukas-reineke/cmp-rg"
-
-  -- Telescope
-  use("nvim-telescope/telescope.nvim")
-  use({ "kevinhwang91/nvim-hlslens" })
-
-  -- Better escaping
+  -- Snippets with LuaSnip engine and snippets collection
+  use ("rafamadriz/friendly-snippets")
   use({
-    "max397574/better-escape.nvim",
-    event = { "InsertEnter" },
-    config = function()
-      require("better_escape").setup({
-        mapping = { "ii", "jj", "jk", "kj" },
-        timeout = vim.o.timeoutlen,
-        keys = "<ESC>",
-      })
-    end,
-  })
+      "L3MON4D3/LuaSnip",
+      dependencies = { "rafamadriz/friendly-snippets"},
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
+    })
 
   -- Better Scroll
   use({
@@ -162,47 +139,13 @@ return packer.startup(function(use)
     end,
   })
 
-  -- Boost startup time
-  use({
-    "nathom/filetype.nvim",
-    config = function()
-      vim.g.did_load_filetypes = 1
-    end,
-  })
-
-  -- Cursorhold fix
-  use({
-    "antoinemadec/FixCursorHold.nvim",
-    event = "BufRead",
-    config = function()
-      vim.g.cursorhold_updatetime = 100
-    end,
-  })
-
-  -- Optimiser
-  use({
-    "lewis6991/impatient.nvim",
-  })
+  -- Indentation
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- plugins end here
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
-
-  -- Old config plugins
-  use 'jremmen/vim-ripgrep' --Vim rig-grep to search against text
-  use 'sheerun/vim-polyglot' --A collection of language packs for Vim.
-  use 'airblade/vim-gitgutter' --A git wrapper so awesome
-
-  -- Common new
-  use 'tpope/vim-fugitive' -- Git commands
-  use 'rhysd/vim-grammarous' -- grammar check
-
-  -- Search
-  use 'tpope/vim-surround' -- surround characters shortcuts
-
-  -- Indentation
-  use "lukas-reineke/indent-blankline.nvim"
 
 end)
