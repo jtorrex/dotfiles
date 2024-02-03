@@ -1,12 +1,13 @@
 local options = {
+  backspace = '2',
   joinspaces = true,
-  laststatus =2,
+  laststatus = 2,
   lazyredraw = true,
   linebreak = true,
   list = true, -- Show some invisible characters (tabs...
   pumblend = 10, -- Popup blend
   smarttab = true,
-  showcmd = false,
+  showcmd = true,
   backup = false,
   clipboard = "unnamedplus", -- Sync with system clipboard
   cmdheight = 2,
@@ -30,7 +31,7 @@ local options = {
   updatetime = 300, -- Save swap file and trigger CursorHold
   writebackup = false,
   expandtab = true, -- Use spaces instead of tabs
-  tabstop = 4, -- Number of spaces tabs count for
+  tabstop = 2, -- Number of spaces tabs count for
   cursorline = true, -- Enable highlighting of the current line
   number = true,
   relativenumber = true, -- Relative line numbers
@@ -47,7 +48,8 @@ local options = {
   shiftwidth = 2, -- Size of an indent
   wildmode = "longest:full,full", -- Command-line completion mode
   winminwidth = 5, -- Minimum window width
-  wrap = false -- Disable line wrap
+  wrap = false, -- Disable line wrap
+  autoread = true
 }
 
 if not vi then
@@ -68,4 +70,3 @@ if vim.fn.filereadable('/usr/local/bin/python3') == 1 then
   -- speeding up start-up.
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
-

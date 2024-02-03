@@ -80,9 +80,9 @@ return packer.startup(function(use)
 
   -- File explorer Tree
   use({
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     requires = {
-      "kyazdani42/nvim-web-devicons", -- optional, for file icon
+      "nvim-tree/nvim-web-devicons", -- optional, for file icon
     },
     config = function()
       require("nvim-tree").setup({})
@@ -105,29 +105,25 @@ return packer.startup(function(use)
     end,
   })
 
-  -- Completion Plugins
+  -- Syntax
+  use("nvim-treesitter/nvim-treesitter")
+
+  -- LSP: Language Service Provider
+  use("neovim/nvim-lspconfig") -- Setup LSP configurations
+  use("williamboman/mason.nvim") -- Package manager for LSP server
+  use("williamboman/mason-lspconfig.nvim")
+
+  -- Completion Plugins and Snippets
   use("hrsh7th/nvim-cmp") -- The completion plugin
+  use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in language server client.
+  use("L3MON4D3/LuaSnip")
+  use("saadparwaiz1/cmp_luasnip") -- snippet completions
+  use("rafamadriz/friendly-snippets")
   use("hrsh7th/cmp-buffer") -- buffer completions
   use("hrsh7th/cmp-path") -- path completions
   use("hrsh7th/cmp-cmdline") -- cmdline completions
-  use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in language server client.
   use("hrsh7th/cmp-nvim-lua") -- This source will complete neovim's Lua runtime API 
-  use("saadparwaiz1/cmp_luasnip") -- snippet completions
   use "lukas-reineke/cmp-rg" -- ripgrep source for nvim-cmp
-
-  -- LSP: Language Service Provider and extras
-  use("neovim/nvim-lspconfig") -- enable LSP
-  use("fatih/vim-go")  -- Go language Support
-
-  -- Snippets with LuaSnip engine and snippets collection
-  use ("rafamadriz/friendly-snippets")
-  use({
-      "L3MON4D3/LuaSnip",
-      dependencies = { "rafamadriz/friendly-snippets"},
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end,
-    })
 
   -- Better Scroll
   use({
