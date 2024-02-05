@@ -26,10 +26,20 @@ require("lazy").setup ({
   "nvim-telescope/telescope-media-files.nvim",
 
   -- Autopairs for vim
-  "windwp/nvim-autopairs",
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end,
+  },
 
   -- Telekasten Wiki
-  "renerocksai/telekasten.nvim",
+  {
+    "renerocksai/telekasten.nvim",
+    config = function()
+      require('telekasten').setup({ home = vim.fn.expand("~/Sync/wiki") })
+    end,
+  },
 
   {
     "iamcco/markdown-preview.nvim",
@@ -39,8 +49,13 @@ require("lazy").setup ({
   "renerocksai/calendar-vim",
 
   -- File explorer Tree
-  "nvim-tree/nvim-tree.lua",
-  "nvim-tree/nvim-web-devicons",
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {"nvim-tree/nvim-web-devicons" },
+    config = function ()
+      require("nvim-tree").setup({})
+    end,
+  },
 
   -- Colorschemes
   "ellisonleao/gruvbox.nvim",
@@ -51,7 +66,12 @@ require("lazy").setup ({
 
   -- Git:
   -- Super fast git decorations implemented purely in Lua.
-  "lewis6991/gitsigns.nvim",
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function ()
+      require("gitsigns").setup({})
+    end,
+  },
 
   -- Syntax
   "nvim-treesitter/nvim-treesitter",
@@ -74,7 +94,14 @@ require("lazy").setup ({
   "lukas-reineke/cmp-rg", -- ripgrep source for nvim-cmp
 
   -- Better Scroll
-  "karb94/neoscroll.nvim",
+  {
+    "karb94/neoscroll.nvim",
+    config = function ()
+      require("neoscroll").setup({
+        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+      })
+    end,
+  },
 
   -- Indentation
   "lukas-reineke/indent-blankline.nvim"
