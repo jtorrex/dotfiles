@@ -29,4 +29,5 @@ vim.cmd [[
   let g:mkdp_filetypes = ['markdown']
   let g:mkdp_combine_preview = 1
   let g:mkdp_combine_preview_auto_refresh = 1
+  let g:mkdp_images_path = $HOME/Sync/wiki/assets
 ]]
