@@ -46,9 +46,16 @@ alias vim='nvim'
 alias vimwiki='vim ~/Sync/wiki/index.md'
 
 # kubectl
-
 alias k='kubectl'
-compdef __start_kubectl k
+source <(kubectl completion bash)
+complete -o default -F __start_kubectl k
+alias kgp='kubectl get pods'
+alias kc='kubectx'
+alias kn='kubens'
+
+# flux
+source <(flux completion bash)
+alias fgk='flux get kustomizations'
 
 # cheat
 cheat () {
@@ -68,4 +75,19 @@ alias cdconfig="cd ~/.config/"
 alias cdwork="cd ~/Workspace/"
 alias cdrepos="cd ~/Workspace/repositories"
 alias cddotfiles="cd ~/Workspace/repositories/dotfiles"
+alias cddhomelab="cd ~/Workspace/repositories/homelab"
+alias cdflux="cd ~/Workspace/repositories/homelab/fluxcd/"
 alias startsession="~/.local/bin/init/init.sh"
+
+# Vagrant as a function
+vvagrant(){
+  docker run -it --rm \
+    -e LIBVIRT_DEFAULT_URI \
+    -v /var/run/libvirt/:/var/run/libvirt/ \
+    -v ~/.vagrant.d:/.vagrant.d \
+    -v $(realpath "${PWD}"):${PWD} \
+    -w "${PWD}" \
+    --network host \
+    vagrantlibvirt/vagrant-libvirt:latest \
+      vagrant $@
+}
