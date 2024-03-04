@@ -1,29 +1,35 @@
 local options = {
-  backspace = '2',
+  encoding = "utf-8",
+  fileencoding = 'utf-8',
+  title = true,
+  backspace = { "start", "eol", "indent"},
   joinspaces = true,
   laststatus = 2,
   lazyredraw = true,
   linebreak = true,
+  breakindent = true,
   list = true, -- Show some invisible characters (tabs...
   pumblend = 10, -- Popup blend
   smarttab = true,
   showcmd = true,
   backup = false,
   clipboard = "unnamedplus", -- Sync with system clipboard
-  cmdheight = 2,
+  cmdheight = 1,
   completeopt = { "menuone", "noselect" },
   conceallevel = 0, -- Hide * markup for bold and italic
   fileencoding = "utf-8",
   hlsearch = true,
   ignorecase = true,
-  mouse = "a",
+  mouse = "",
   pumheight = 10, -- Maximum number of entries in a popup
   showmode = false, -- Dont show mode since we have a statusline
   showtabline = 2,
   smartcase = true, -- Don't ignore case with capitals
-  smartindent = false, -- Insert indents automatically
+  smartindent = true, -- Insert indents automatically
+  autoindent = true, -- Insert indents automatically
   splitbelow = true, -- Put new windows below current
   splitright = true, -- Put new windows right of current
+  splitkeep = "cursor", -- Put new windows right of current
   swapfile = false,
   termguicolors = true, -- True color support
   timeoutlen = 1000,
@@ -38,18 +44,20 @@ local options = {
   numberwidth = 4,
   signcolumn = "yes", -- Always show the signcolumn, otherwise it would shift the text each time
   wrap = false,
-  scrolloff = 8, -- Lines of context
+  scrolloff = 10, -- Lines of context
   sidescrolloff = 8, -- Columns of context
   confirm = true, -- Confirm to save changes before exiting modified buffer
   grepprg = "rg --vimgrep",
-  inccommand = "nosplit", -- preview incremental substitute
+  inccommand = "split", -- preview incremental substitute
   sessionoptions = { "buffers", "curdir", "tabpages", "winsize" },
   shiftround = true, -- Round indent
   shiftwidth = 2, -- Size of an indent
   wildmode = "longest:full,full", -- Command-line completion mode
   winminwidth = 5, -- Minimum window width
   wrap = false, -- Disable line wrap
-  autoread = true
+  autoread = true,
+  shell= "zsh"
+
 }
 
 if not vi then
@@ -61,6 +69,8 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+vim.scriptenconding = "utf-8"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
