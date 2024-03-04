@@ -107,6 +107,17 @@ require("lazy").setup ({
       require("gitsigns").setup({})
     end,
   },
+  -- Call LazyGit from Nvim
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+  },
 
   -- Syntax
   "nvim-treesitter/nvim-treesitter",
