@@ -24,7 +24,9 @@ require("lazy").setup ({
   },
 
   "nvim-telescope/telescope-media-files.nvim",
-
+  
+  -- ToogleTerm
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
   -- Autopairs for vim
   {
     "windwp/nvim-autopairs",
