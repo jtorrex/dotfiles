@@ -26,7 +26,8 @@ font pango:Hack 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 
 # Back and forth between workspaces
-bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab workspace next
+bindsym $mod+Tab+Shift workspace prev
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
@@ -48,23 +49,11 @@ bindsym $mod+j focus left
 bindsym $mod+k focus right
 bindsym $mod+l focus up
 
-# Change focus (cursor keys)
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # Move window (Vi keys)
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# Move window (cursor keys)
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Alt+h move left
+bindsym $mod+Alt+j move down
+bindsym $mod+Alt+k move up
+bindsym $mod+Alt+l move right
 
 # Horizontal split
 bindsym $mod+b splith
@@ -122,12 +111,8 @@ bindsym $mod+F2 exec pavucontrol
 bindsym $mod+F9 exec screen-laptop.sh
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-
-#navigate workspaces next / previous: vim mode
-bindsym $mod+Ctrl+j workspace next
-bindsym $mod+Ctrl+k workspace prev
+bindsym $mod+Shift+j workspace next
+bindsym $mod+Shift+k workspace prev
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
@@ -258,7 +243,7 @@ exec_always gammastep
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #Services initialization
-exec mpd -c '~/.config/mpd/mpd.conf'
+#exec mpd -c '~/.config/mpd/mpd.conf'
 exec --no-startup-id zsh -c 'tmux start-server'
 
 # Wallapaper
