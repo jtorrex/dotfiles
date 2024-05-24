@@ -111,8 +111,8 @@ bindsym $mod+F2 exec pavucontrol
 bindsym $mod+F9 exec screen-laptop.sh
 
 #navigate workspaces next / previous
-bindsym $mod+Shift+j workspace next
-bindsym $mod+Shift+k workspace prev
+bindsym $mod+Ctrl+j workspace next
+bindsym $mod+Ctrl+k workspace prev
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
