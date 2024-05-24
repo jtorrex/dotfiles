@@ -48,8 +48,7 @@ alias vimwiki='vim ~/Sync/wiki/index.md'
 # kubectl
 alias k='kubectl'
 source <(kubectl completion bash)
-complete -o default -F __start_kubectl k
-alias kgp='kubectl get pods'
+alias kgp='kubectl get pods -A'
 alias kc='kubectx'
 alias kn='kubens'
 
@@ -75,7 +74,7 @@ alias cdconfig="cd ~/.config/"
 alias cdwork="cd ~/Workspace/"
 alias cdrepos="cd ~/Workspace/repositories"
 alias cddotfiles="cd ~/Workspace/repositories/dotfiles"
-alias cddhomelab="cd ~/Workspace/repositories/homelab"
+alias cdhomelab="cd ~/Workspace/repositories/homelab"
 alias cdflux="cd ~/Workspace/repositories/homelab/fluxcd/"
 alias startsession="~/.local/bin/init/init.sh"
 
@@ -91,3 +90,6 @@ vvagrant(){
     vagrantlibvirt/vagrant-libvirt:latest \
       vagrant $@
 }
+
+# Machines
+alias hpcgw="sshuttle -NHr gateway"
