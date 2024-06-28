@@ -47,13 +47,13 @@ alias vimwiki='vim ~/Sync/wiki/index.md'
 
 # kubectl
 alias k='kubectl'
-source <(kubectl completion bash)
+source <(kubectl completion zsh)
 alias kgp='kubectl get pods -A'
 alias kc='kubectx'
 alias kn='kubens'
 
 # flux
-source <(flux completion bash)
+source <(flux completion zsh)
 alias fgk='flux get kustomizations'
 
 # cheat
