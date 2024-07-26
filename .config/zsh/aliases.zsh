@@ -1,5 +1,5 @@
 # ls
-alias l='ls -Flh'
+alias l='ls -Flha'
 alias ll='ls -Flha'
 
 # interactive
@@ -34,8 +34,6 @@ alias ta='tmux attach'
 # less
 alias less='less --raw-control-chars'
 
-# diff alias diff='git diff --no-index'
-
 # feh
 alias feh='feh --scale-down --auto-zoom'
 
@@ -46,8 +44,8 @@ alias vim='nvim'
 alias vimwiki='vim ~/Sync/wiki/index.md'
 
 # kubectl
-alias k='kubectl'
 source <(kubectl completion zsh)
+alias k='kubectl'
 alias kgp='kubectl get pods -A'
 alias kc='kubectx'
 alias kn='kubens'
@@ -70,12 +68,14 @@ alias gplv3='curl "https://www.gnu.org/licenses/gpl-3.0.md" > LICENSE.md'
 # Miscelanea
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias ssh="TERM=xterm-256color ssh"
-alias cdconfig="cd ~/.config/"
 alias cdwork="cd ~/Workspace/"
 alias cdrepos="cd ~/Workspace/repositories"
-alias cddotfiles="cd ~/Workspace/repositories/dotfiles"
+alias cdconfig="cd ~/.config/"
+alias cddots="cd ~/Workspace/repositories/dotfiles"
 alias cdhomelab="cd ~/Workspace/repositories/homelab"
-alias cdflux="cd ~/Workspace/repositories/homelab/fluxcd/"
+alias vimhomelab="vim ~/Workspace/repositories/homelab/"
+alias vimconfig="vim ~/.config/"
+alias vimdots="vim ~/Workspace/repositories/dotfiles"
 alias startsession="~/.local/bin/init/init.sh"
 
 # Vagrant as a function
