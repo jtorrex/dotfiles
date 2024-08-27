@@ -14,14 +14,14 @@ right_format = """$git_status$cmd_duration"""
 style_user = "green bold"
 style_root = "red bold"
 format = "[$user]($style)"
-disabled = false
+disabled = true
 show_always = true
 
 [hostname]
 ssh_only = false
 format = '[$ssh_symbol](bold blue)@[$hostname](bold red)'
 trim_at = "."
-disabled = false
+disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
