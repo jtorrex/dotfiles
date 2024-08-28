@@ -77,6 +77,8 @@ alias vimhomelab="vim ~/Workspace/repositories/homelab/"
 alias vimconfig="vim ~/.config/"
 alias vimdots="vim ~/Workspace/repositories/dotfiles"
 alias startsession="~/.local/bin/init/init.sh"
+alias gpgencrypt="gpg --encrypt --sign -r"
+alias gpgdecrypt="gpg --decrypt"
 
 # Vagrant as a function
 vvagrant(){

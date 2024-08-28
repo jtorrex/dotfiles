@@ -27,4 +27,7 @@ antidote load "$ZSH_CONFIG/zsh_plugins.txt"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source <(kubectl completion zsh)
+
+# Enable emacs mode to run properly shortcuts licke Cntrol+A, etec
+bindkey -e
 eval "$(starship init zsh)"
