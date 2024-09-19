@@ -239,7 +239,7 @@ exec_always autotiling
 exec_always kanshi
 exec_always nm-applet
 exec_always blueman-applet
-exec_always gammastep
+exec_always gammastep 
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #Services initialization
