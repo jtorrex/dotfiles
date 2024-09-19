@@ -69,4 +69,4 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>gg", ":LazyGitCurrentFile<CR>", opts)
 
 -- ToggleTerm
-keymap("n", "<leader>tt", ":ToggleTerm direction=float<CR>", opts)
+keymap("n", "<leader>tt", ":ToggleTerm directoin=horizontal size=25<CR>", opts)
