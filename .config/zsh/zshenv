@@ -1,12 +1,15 @@
 # ZSH
+export ZSH_CONFIG="${HOME}/.config/zsh"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+export ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
+
 [[ -d $ZSH_CACHE_DIR ]] || mkdir -p $ZSH_CACHE_DIR
 
 # ENV
 export LC_ALL=en_US.UTF-8
 export EDITOR='nvim'
-export VISUAL=nvim
-export KUBE_EDITOR=nvim
+export VISUAL='nvim'
+export KUBE_EDITOR='nvim'
 export SQITCH_EDITOR='vim'
 
 export NVM_DIR="${HOME}/.nvm"

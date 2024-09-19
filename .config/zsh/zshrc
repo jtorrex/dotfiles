@@ -2,13 +2,16 @@
 autoload -Uz compinit
 compinit
 
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
+export HISTFILE=~/.config/zsh/histfile
+export HISTSIZE=100000
+export SAVEHIST=100000
 
-ZSH_CONFIG="${HOME}/.config/zsh"
-ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
-DISABLE_AUTO_TITLE=true
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 
 fpath+=~/.zfunc
 
