@@ -79,6 +79,7 @@ alias vimdots="vim ~/Workspace/repositories/dotfiles"
 alias startsession="~/.local/bin/init/init.sh"
 alias gpgencrypt="gpg --encrypt --sign -r"
 alias gpgdecrypt="gpg --decrypt"
+alias kvmlist="watch sudo virsh list --all"
 
 # Vagrant as a function
 vvagrant(){
