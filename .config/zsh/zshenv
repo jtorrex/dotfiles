@@ -29,6 +29,8 @@ export PATH="$PATH:/opt/local/bin:$HOME/.local/bin"
 
 export GPG_TTY=$(tty)
 
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
 # DEV
 export GOPATH="$HOME/.local"
 export NOTMUCH_CONFIG=~/.config/notmuch/notmuch
