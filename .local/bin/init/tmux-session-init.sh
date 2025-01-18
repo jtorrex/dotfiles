@@ -28,7 +28,7 @@ then
     tmux send-keys 'ranger' C-m 
 
     tmux new-window -t $PER_SESSION:5
-    tmux send-keys 'ncmpcpp' C-m
+    tmux send-keys 'ncmpc' C-m
 
     tmux new-window -t $PER_SESSION:6
     tmux send-keys 'newsboat' C-m
