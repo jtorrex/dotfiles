@@ -1,3 +1,7 @@
+assign [app_id="firefox"] 1
+assign [app_id="thunderbird"] 3
+assign [app_id="telegram-desktop"] 8
+
 default_border pixel 1
 default_floating_border pixel 1
 
@@ -8,8 +12,7 @@ smart_borders no_gaps
 
 # focus the parent container
 # bindsym $mod+a focus parent
-# workspace_auto_back_and_forth yes
-
+workspace_auto_back_and_forth yes
 
 # set mod key (Mod1=Alt, Mod4=Super)
 set $mod Mod4
@@ -26,8 +29,9 @@ font pango:Hack 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 
 # Back and forth between workspaces
-bindsym $mod+Tab workspace next
+bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Tab+Shift workspace prev
+bindsym $mod+Tab+Ctrl workspace next
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
@@ -106,7 +110,7 @@ bindsym XF86Search exec bemenu-run
 bindsym $mod+Shift+x exec grim -g "$(slurp)" - | swappy -f -
 
 # Start Applications
-bindsym $mod+F1 exec thunar
+bindsym $mod+F1 exec pcmanfm-qt
 bindsym $mod+F2 exec pavucontrol
 bindsym $mod+F9 exec screen-laptop.sh
 
@@ -119,6 +123,10 @@ bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+o focus mode_toggle
+
+# MPD Control
+bindsym $mod+p exec mpd pause
+bindsym $mod+Shift+p exec mpd play
 
 #DEFAULT
 set $ws1 1
@@ -162,11 +170,12 @@ bindsym $mod+Shift+8 move container to workspace number $ws8; workspace $ws8
 
 # Open specific applications in floating mode
 # for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="virt-manager"] floating enable
+#for_window [app_id="virt-manager"] floating enabled
+#for_window [app_id="virt-viewer"] floating enabled
 for_window [app_id="file-roller"] floating enabled
 for_window [app_id="pavucontrol"] floating enabled
-for_window [app_id="swayimg"] floating enable
-for_window [app_id="imv"] floating enable
+for_window [app_id="swayimg"] floating enabled
+for_window [app_id="imv"] floating enabled
 
 # set a window to stick to the glass
 #bindsym $mod+Shift+s sticky toggle
@@ -233,6 +242,9 @@ input type:touchpad {
 # Autostart applications
 exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec syncthing
+exec telegram-desktop
+exec thunderbird
+exec firefox
 exec keepassxc
 exec mako
 exec_always autotiling
