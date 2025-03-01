@@ -1,0 +1,3 @@
+#!/bin/bash
+~/.local/bin/ssh-keys-init
+~/.local/bin/tmux-session-init
