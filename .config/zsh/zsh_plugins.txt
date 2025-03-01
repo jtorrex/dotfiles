@@ -1,10 +1,17 @@
+# Initialize Zsh completions (must be first)
 # NOTE: Required to fix "command not found: compdef" errors
-zshzoo/completion
 
 # Oh My Zsh plugins (lib required first)
 ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/bundler
+ohmyzsh/ohmyzsh path:plugins/composer
 
 # add fish-like features
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
+
+# you can even use Oh My Zsh plugins
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/extract
