@@ -19,6 +19,7 @@ set $mod Mod4
 floating_modifier $mod
 
 bindsym $mod+d exec rofi -show run
+bindsym $mod+c exec clipcat-menu
 #bindsym $mod+d exec wofi --show combi --allow-images
 #bindsym $mod+d exec bemenu
 
@@ -255,7 +256,7 @@ exec_always gammastep
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #Services initialization
-#exec mpd -c '~/.config/mpd/mpd.conf'
+exec mpd -c '~/.config/mpd/mpd.conf'
 exec --no-startup-id zsh -c 'tmux start-server'
 
 # Wallapaper
