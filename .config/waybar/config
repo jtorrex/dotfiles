@@ -6,7 +6,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["clock","network","cpu","memory","temperature","battery","backlight","pulseaudio","tray"],
+    "modules-right": ["clock","network","cpu","memory","temperature","battery","backlight","tray"],
 
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
