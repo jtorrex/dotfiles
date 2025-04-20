@@ -7,11 +7,11 @@ ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/bundler
 ohmyzsh/ohmyzsh path:plugins/composer
 
-# add fish-like features
+## add fish-like features
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 
-# you can even use Oh My Zsh plugins
-ohmyzsh/ohmyzsh path:lib
+## you can even use Oh My Zsh plugins
+#ohmyzsh/ohmyzsh path:lib
 ohmyzsh/ohmyzsh path:plugins/extract
