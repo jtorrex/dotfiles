@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup ({
+
   -- Plugins Start Here
   "wbthomason/packer.nvim", -- Have packer manage itself
   "nvim-lua/popup.nvim",  -- An implementation of the Popup API from vim in Neovim
@@ -25,9 +26,10 @@ require("lazy").setup ({
   },
 
   "nvim-telescope/telescope-media-files.nvim",
-  
+
   -- ToogleTerm
   {'akinsho/toggleterm.nvim', version = "*", config = true},
+
   -- Autopairs for vim
   {
     "windwp/nvim-autopairs",
@@ -101,6 +103,18 @@ require("lazy").setup ({
   "hrsh7th/cmp-cmdline", -- cmdline completions
   "hrsh7th/cmp-nvim-lua", -- This source will complete neovim's Lua runtime API 
   "lukas-reineke/cmp-rg", -- ripgrep source for nvim-cmp
+
+  -- Copilot suggestions will automatically be loaded into your cmp menu 
+  -- https://github.com/zbirenbaum/copilot-cmp
+  { "zbirenbaum/copilot.lua" },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  },
 
   -- Better Scroll
   {
