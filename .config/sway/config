@@ -248,6 +248,7 @@ exec thunderbird
 exec firefox
 exec keepassxc
 exec mako
+exec pasystray
 exec_always autotiling
 exec_always kanshi
 exec_always nm-applet
@@ -258,6 +259,7 @@ bindsym $mod+Shift+n exec swaync-client -t -sw
 #Services initialization
 exec mpd -c '~/.config/mpd/mpd.conf'
 exec --no-startup-id zsh -c 'tmux start-server'
+exec clipcatd
 
 # Wallapaper
 exec_always swaybg -i ~/Sync/wallpapers/current -m fill
