@@ -3,6 +3,11 @@ export ZSH_CONFIG="${HOME}/.config/zsh"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 export ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
 
+. "$HOME/.cargo/env"
+export PATH=~/.npm-global/bin:$PATH
+export QT_QPA_PLATFORM="wayland;xcb"
+export GDK_SCALE=1.4
+
 [[ -d $ZSH_CACHE_DIR ]] || mkdir -p $ZSH_CACHE_DIR
 
 # ENV
