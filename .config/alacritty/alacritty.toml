@@ -13,11 +13,16 @@ mods = "Control|Shift"
 TERM = "alacritty"
 
 [font]
-size = 10
-
-[font.glyph_offset]
-x = 0
-y = 0
+normal = { family = "FiraCode", style = "Regular" }
+bold = { family = "FiraCode", style = "Bold" }
+italic = { family = "FiraCode", style = "Italic" }
+#normal = { family = "IBM Plex Mono", style = "Regular" }
+#bold = { family = "IBM Plex Mono", style = "Bold" }
+#italic = { family = "IBM Plex Mono", style = "Italic" }
+#normal = { family = "Jetbrains Mono", style = "Regular" }
+#bold = { family = "Jetbrains Mono", style = "Bold" }
+#italic = { family = "Jetbrains Mono", style = "Italic" }
+size = 14
 
 [scrolling]
 history = 8000
