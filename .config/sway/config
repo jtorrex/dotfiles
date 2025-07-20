@@ -1,14 +1,18 @@
+output * adaptive_sync on
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 assign [app_id="firefox"] 1
-assign [app_id="thunderbird"] 3
-assign [app_id="telegram-desktop"] 8
+assign [app_id="thunderbird-beta"] 3
+assign [app_id="Telegram"] 8
 
 default_border pixel 1
 default_floating_border pixel 1
 
 # Gaps
-gaps inner 3
-smart_gaps on
-smart_borders no_gaps
+gaps inner 5
+gaps outer 0
+#smart_gaps on
+smart_borders on
 
 # focus the parent container
 # bindsym $mod+a focus parent
@@ -20,12 +24,10 @@ floating_modifier $mod
 
 bindsym $mod+d exec rofi -show run
 bindsym $mod+c exec clipcat-menu
-#bindsym $mod+d exec wofi --show combi --allow-images
-#bindsym $mod+d exec bemenu
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Hack 12
+font pango:Firacode 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 
@@ -35,9 +37,7 @@ bindsym $mod+Tab+Shift workspace prev
 bindsym $mod+Tab+Ctrl workspace next
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec wrxvt
-bindsym $mod+Return exec cd "$(sway-focused-window-cwd)" && alacritty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -49,10 +49,8 @@ focus_follows_mouse yes
 bindsym $mod+Shift+c reload
 
 # Change focus (Vi keys)
-bindsym $mod+h focus down
-bindsym $mod+j focus left
-bindsym $mod+k focus right
-bindsym $mod+l focus up
+bindsym $mod+j focus right
+bindsym $mod+k focus up
 
 # Move window (Vi keys)
 bindsym $mod+Alt+h move left
@@ -67,6 +65,7 @@ bindsym $mod+b splith
 bindsym $mod+v splitv
 
 # Change layout
+bindsym $mod+s layout stacking; exec notify-send 'i3: stacked'
 bindsym $mod+w layout tabbed; exec notify-send 'i3: tabbed'
 bindsym $mod+e layout toggle split; exec notify-send 'i3: split'
 
@@ -81,7 +80,7 @@ bindsym $mod+space focus mode_toggle
 
 # Focus parent/child container
 bindsym $mod+a focus parent
-bindsym $mod+s focus child
+#bindsym $mod+s focus child
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -177,6 +176,17 @@ for_window [app_id="file-roller"] floating enabled
 for_window [app_id="pavucontrol"] floating enabled
 for_window [app_id="swayimg"] floating enabled
 for_window [app_id="imv"] floating enabled
+for_window [app_id="pop-up"]                     floating enable
+for_window [app_id="bubble"]                     floating enable 
+for_window [app_id="task_dialog"]                floating enable
+for_window [app_id="Preferences"]                floating enable
+for_window [app_id="dialog"]                     floating enable 
+for_window [app_id="menu"]                       floating enable
+for_window [app_id="Organizer"]                  floating enable
+for_window [app_id="About"]                      floating enable
+for_window [app_id="toolbox"]                    floating enable
+for_window [app_id="page-info"]                  floating enable	
+for_window [app_id="webconsole"]                 floating enable
 
 # set a window to stick to the glass
 #bindsym $mod+Shift+s sticky toggle
@@ -187,10 +197,10 @@ for_window [app_id="imv"] floating enabled
 # Mode resize
 bindsym $mod+r mode "resize"
 mode "resize" {
-    bindsym h resize shrink width 10px
-    bindsym j resize grow height 10px
-    bindsym k resize shrink height 10px
-    bindsym l resize grow width 10px
+    bindsym h resize shrink width 15px
+    bindsym j resize grow height 15px
+    bindsym k resize shrink height 15px
+    bindsym l resize grow width 15px
     # Resize (cursor keys)
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
@@ -235,31 +245,34 @@ input type:keyboard {
     repeat_delay 300
 }
 
-input type:touchpad {
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+# Touchpad
+input "1739:0:Synaptics_TM3471-020" {
+    dwt enabled
+    tap enabled
     natural_scroll enabled
+    middle_emulation enabled
     click_method clickfinger
 }
 
 # Autostart applications
-exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec syncthing
-exec telegram-desktop
-exec thunderbird
-exec firefox
-exec keepassxc
-exec mako
-exec pasystray
-exec_always autotiling
-exec_always kanshi
-exec_always nm-applet
+exec_always nm-applet --indicator
 exec_always blueman-applet
-exec_always gammastep 
-bindsym $mod+Shift+n exec swaync-client -t -sw
+exec_always kanshi
+exec_always mako
 
 #Services initialization
 exec mpd -c '~/.config/mpd/mpd.conf'
 exec --no-startup-id zsh -c 'tmux start-server'
 exec clipcatd
+exec gammastep
+exec gammastep-indicator
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec syncthing
+exec keepassxc
+exec pasystray
+exec autotiling
 
 # Wallapaper
 exec_always swaybg -i ~/Sync/wallpapers/current -m fill
