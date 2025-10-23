@@ -37,7 +37,7 @@ bindsym $mod+Tab+Shift workspace prev
 bindsym $mod+Tab+Ctrl workspace next
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -110,7 +110,8 @@ bindsym XF86Search exec bemenu-run
 bindsym $mod+Shift+x exec grim -g "$(slurp)" - | swappy -f -
 
 # Start Applications
-bindsym $mod+F1 exec pcmanfm-qt
+bindsym $mod+p exec keepassxc
+bindsym $mod+F1 exec pcmanfm
 bindsym $mod+F2 exec pavucontrol
 bindsym $mod+F9 exec screen-laptop.sh
 
@@ -125,8 +126,8 @@ bindsym $mod+Shift+f floating toggle
 bindsym $mod+o focus mode_toggle
 
 # MPD Control
-bindsym $mod+p exec mpd pause
-bindsym $mod+Shift+p exec mpd play
+#bindsym $mod+p exec mpd pause
+#bindsym $mod+Shift+p exec mpd play
 
 #DEFAULT
 set $ws1 1
@@ -173,6 +174,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8; workspace $ws8
 #for_window [app_id="virt-manager"] floating enabled
 #for_window [app_id="virt-viewer"] floating enabled
 for_window [app_id="file-roller"] floating enabled
+for_window [app_id="keepassxc"] floating enabled
 for_window [app_id="pavucontrol"] floating enabled
 for_window [app_id="swayimg"] floating enabled
 for_window [app_id="imv"] floating enabled
@@ -235,7 +237,7 @@ bindsym $mod+0 exec wlogout
 # Idle management
 exec swayidle -w \
     timeout 1200 'swaylock' \
-    before-sleep 'swaylock'
+    before-sleep 'swaylock -f'
 
 # Keyboard
 input type:keyboard {
@@ -261,6 +263,7 @@ exec_always nm-applet --indicator
 exec_always blueman-applet
 exec_always kanshi
 exec_always mako
+exec_always keepassxc
 
 #Services initialization
 exec mpd -c '~/.config/mpd/mpd.conf'
@@ -270,7 +273,6 @@ exec gammastep
 exec gammastep-indicator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec syncthing
-exec keepassxc
 exec pasystray
 exec autotiling
 
