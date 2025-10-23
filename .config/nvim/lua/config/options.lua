@@ -1,12 +1,10 @@
 local options = {
   encoding = "utf-8",
-  fileencoding = 'utf-8',
   title = true,
   backspace = { "start", "eol", "indent"},
   joinspaces = true,
   laststatus = 2,
   lazyredraw = true,
-  linebreak = true,
   breakindent = true,
   list = true, -- Show some invisible characters (tabs...
   pumblend = 10, -- Popup blend
@@ -32,18 +30,21 @@ local options = {
   splitkeep = "cursor", -- Put new windows right of current
   swapfile = false,
   termguicolors = true, -- True color support
+  timeout = true,
   timeoutlen = 1000,
   undofile = true,
-  updatetime = 300, -- Save swap file and trigger CursorHold
+  updatetime = 100, -- Save swap file and trigger CursorHold
   writebackup = false,
   expandtab = true, -- Use spaces instead of tabs
-  tabstop = 2, -- Number of spaces tabs count for
   cursorline = true, -- Enable highlighting of the current line
   number = true,
   relativenumber = true, -- Relative line numbers
+  shiftwidth = 4, -- Size of an indent
+  tabstop = 4, -- Number of spaces tabs count for
   numberwidth = 4,
   signcolumn = "yes", -- Always show the signcolumn, otherwise it would shift the text each time
-  wrap = false,
+  linebreak = true,
+  showbreak = "↳",
   scrolloff = 10, -- Lines of context
   sidescrolloff = 8, -- Columns of context
   confirm = true, -- Confirm to save changes before exiting modified buffer
@@ -51,13 +52,14 @@ local options = {
   inccommand = "split", -- preview incremental substitute
   sessionoptions = { "buffers", "curdir", "tabpages", "winsize" },
   shiftround = true, -- Round indent
-  shiftwidth = 2, -- Size of an indent
   wildmode = "longest:full,full", -- Command-line completion mode
   winminwidth = 5, -- Minimum window width
-  wrap = false, -- Disable line wrap
+  wrap = true,
   autoread = true,
-  shell= "zsh"
-
+  shell= "zsh",
+  termguicolors = true, -- set term gui colors (most terminals support this)
+  ---
+  foldmethod = "manual" -- folding, set to "expr" for treesitter based folding
 }
 
 if not vi then

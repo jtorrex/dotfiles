@@ -1,6 +1,5 @@
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
+vim.lsp.enable({
+    "dockerls",
     "lua_ls",
     "clangd",
     "dockerls",
@@ -8,54 +7,109 @@ require("mason-lspconfig").setup({
     "helm_ls",
     "pylsp",
     "terraformls",
-    "tflint"
-  }
+    "tflint",
+    "yamlls"
 })
 
-local lspconfig = require('lspconfig')
-local lsp_defaults = lspconfig.util.default_config
-local capabilities = require('cmp_nvim_lsp').default_capabilities
+--vim.lsp.enable({
+--    "dockerls",
+--    "lua_ls",
+--    "clangd",
+--    "dockerls",
+--    "yamlls",
+--    "helm_ls",
+--    "pylsp",
+--    "terraformls",
+--    "tflint",
+--    "yamlls",
+--    "helm-ls",
+--    "terraform-ls",
+--    "yaml-language-server",
+--    "dockerfile-language-server",
+--    "ansible-language-server",
+--    "bash-language-server",
+--    "copilot-language-server",
+--    "gopls",
+--    "html-lsp",
+--    "lua-language-server",
+--    "nextflow-language-server",
+--    "python-lsp-server",
+--    "typescript-language-server",
+--    "zls"
+--})
 
+-- LSP serves are managed by Mason
+-- Us :MasonVerify to check which tools are Mason managed
 
-require("lspconfig").dockerls.setup {
-  capabilities = capabilities
-}
-require("lspconfig").lua_ls.setup {
-  capabilities = capabilities
-}
-require("lspconfig").clangd.setup {
-  capabilities = capabilities
-}
-require("lspconfig").helm_ls.setup {
-  capabilities = capabilities
-}
-require("lspconfig").pylsp.setup {
-  capabilities = capabilities
-}
-require("lspconfig").terraformls.setup {
-  capabilities = capabilities
-}
-require("lspconfig").tflint.setup {
-  capabilities = capabilities
-}
+vim.diagnostic.config({
+    virtual_text = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+    float = {
+        border = "rounded",
+        source = true,
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "󰅚 ",
+            [vim.diagnostic.severity.WARN] = "󰀪 ",
+            [vim.diagnostic.severity.INFO] = "󰋽 ",
+            [vim.diagnostic.severity.HINT] = "󰌶 ",
+        },
+        numhl = {
+            [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+            [vim.diagnostic.severity.WARN] = "WarningMsg",
+        },
+    },
+})
 
--- https://www.arthurkoziel.com/json-schemas-in-neovim/
-require('lspconfig').yamlls.setup {
+vim.lsp.config("dockerls", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("clangd", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("helm_ls", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("pylsp", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("terraformls", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("tflint", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("yamlls", {
+  capabilities = capabilities,
   settings = {
     yaml = {
       validate = true,
-      -- disable the schema store
       schemaStore = {
         enable = false,
         url = "",
       },
-      -- manually select schemas
       schemas = {
-        ['https://json.schemastore.org/kustomization.json'] = 'kustomization.{yml,yaml}',
-        ['https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json'] = 'docker-compose*.{yml,yaml}',
-        ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] = "argocd-application.yaml",
-        kubernetes = { 'k8s**.yaml', 'kube*/*.yaml' }
-      }
-    }
-  }
-}
+        ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
+        ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] =
+          "docker-compose*.{yml,yaml}",
+        ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] =
+          "argocd-application.yaml",
+        kubernetes = { "k8s**.yaml", "kube*/*.yaml" },
+      },
+    },
+  },
+})
+

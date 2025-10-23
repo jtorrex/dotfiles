@@ -58,15 +58,36 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
 -- LazyGit
 keymap("n", "<leader>gg", ":LazyGitCurrentFile<CR>", opts)
 
 -- ToggleTerm
-keymap("n", "<leader>tt", ":ToggleTerm directoin=horizontal size=25<CR>", opts)
+keymap("n", "<leader>tt", ":ToggleTerm direction=horizontal size=20<CR>", opts)
+
+-- Opencode/Copilot
+vim.keymap.set("n", "<leader>cc", function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local t = Terminal:new({
+    cmd = "opencode",
+    direction = "float",
+  })
+  t:toggle()
+  -- vim.cmd("vertical resize 50")
+end, { noremap = true, silent = true })
+
+-- Telekasten
+-- Keymaps
+keymap("n", "<leader>z", "<cmd>Telekasten panel<CR>", opts)
+-- Most used functions
+keymap("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>", opts)
+keymap("n", "<leader>zg", "<cmd>Telekasten search_notes<CR>", opts)
+keymap("n", "<leader>zd", "<cmd>Telekasten goto_today<CR>", opts)
+keymap("n", "<leader>zz", "<cmd>Telekasten follow_link<CR>", opts)
+keymap("n", "<leader>zn", "<cmd>Telekasten new_note<CR>", opts)
+keymap("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>", opts)
+keymap("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>", opts)
+keymap("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>", opts)
+-- All insert link automatically when we start typing a link
+keymap("i", "[[", "<cmd>Telekasten insert_link<CR>", opts)
+
+
