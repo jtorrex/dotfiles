@@ -14,6 +14,13 @@ return {
                 "rust-analyzer",               -- Rust LSP
                 "copilot-language-server",       -- Copilot LSP
                 "nextflow-language-server",
+                "dockerfile-language-server",
+                "pylsp",
+                "clangd",
+                "helm-ls",
+                "terraform-ls",
+                "tflint",
+                "yaml-language-server",
 
                 -- Formatters (for conform.nvim and general use)
                 "stylua",
@@ -43,7 +50,11 @@ return {
         config = function(_, opts)
             -- PATH is handled by core.mason-path for consistency
             require("mason").setup(opts)
-
+            -- Automatically connect mason to LSPs
+            -- require("mason-lspconfig").setup({
+            --   ensure_installed = servers,
+            --   automatic_installation = true,
+            -- })
             -- Auto-install ensure_installed tools with better error handling
             local mr = require("mason-registry")
             local function ensure_installed()

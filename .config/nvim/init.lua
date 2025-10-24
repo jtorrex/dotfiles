@@ -2,8 +2,8 @@ require("config.options")
 require("config.keymaps")
 --
 require("core.lazy")
+--require("core.cmp")
 require("core.lsp")
-require("core.cmp")
 --
 require("config.colorscheme")
 require("config.icons")
