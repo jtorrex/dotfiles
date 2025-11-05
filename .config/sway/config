@@ -115,7 +115,10 @@ bindsym $mod+F1 exec pcmanfm
 bindsym $mod+F2 exec pavucontrol
 bindsym $mod+F9 exec screen-laptop.sh
 
-#navigate workspaces next / previous
+# Focus ChatGPT scratchpad window
+bindsym $mod+g exec 'swaymsg "[app_id=\"firefox\" title=\".*ChatGPT.*\"] scratchpad show"'
+
+# navigate workspaces next / previous
 bindsym $mod+Ctrl+j workspace next
 bindsym $mod+Ctrl+k workspace prev
 
@@ -253,7 +256,7 @@ input type:keyboard {
 input "1739:0:Synaptics_TM3471-020" {
     dwt enabled
     tap enabled
-    natural_scroll enabled
+    # natural_scroll enabled
     middle_emulation enabled
     click_method clickfinger
 }
