@@ -1,13 +1,40 @@
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Neovim
 .config/nvim/bundle/
+
+# MPD
 .config/mpd/database
 .config/mpd/log
 .config/mpd/pid
 .config/mpd/playlists/
 .config/mpd/state
 .config/mpd/sticker.sql
+
+# Logs and temporary files
 .config/ncmpcpp/error.log
-.config/newsboat/urls
 .config/alacritty/alacritty.yml.*.bak
 .config/zsh/antidote
 .config/zsh/.zshrc.zwc
 .config/zsh/zsh_plugins.zsh
+
+# Private directories and files
+.config/newsboat/urls
+.config/zsh/histfile
+.config/zsh/histfile.bkp
+
+# Private scripts and sensitive data
+.local/bin/private/*
+!.local/bin/private/secure/
+.local/bin/private/secure/*
+!.local/bin/private/secure/*.gpg
+
+# Ignore all .env files
+**/*.env
+
+# But track example env files
+!**/*.env.example
