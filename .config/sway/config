@@ -72,8 +72,12 @@ bindsym $mod+e layout toggle split; exec notify-send 'i3: split'
 # Toggle fullscreen
 bindsym $mod+f fullscreen
 
+# toggle tiling / floating
+bindsym $mod+Shift+f floating toggle
+
 # Toggle tiling and floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+o floating enable, sticky enable
+bindsym $mod+Shift+o floating disable, sticky disable
 
 # Change focus between tiling and floating windows
 bindsym $mod+space focus mode_toggle
@@ -122,11 +126,6 @@ bindsym $mod+g exec 'swaymsg "[app_id=\"firefox\" title=\".*ChatGPT.*\"] scratch
 bindsym $mod+Ctrl+j workspace next
 bindsym $mod+Ctrl+k workspace prev
 
-# toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+o focus mode_toggle
 
 # MPD Control
 #bindsym $mod+p exec mpd pause
