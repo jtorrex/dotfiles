@@ -23,7 +23,6 @@ if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
     source "/tmp/ssh-agent.env" > /dev/null
 fi
 
-source "$ZSH_CONFIG/aliases.zsh"
 source "$ZSH_CONFIG/antidote/antidote.zsh"
 antidote load "$ZSH_CONFIG/zsh_plugins.txt"
 
@@ -34,3 +33,13 @@ source <(kubectl completion zsh)
 # Enable emacs mode to run properly shortcuts licke Cntrol+A, etec
 bindkey -e
 eval "$(starship init zsh)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# opencode
+export PATH=/home/jtorrex/.opencode/bin:$PATH
+
+# Aliases
+source "$ZSH_CONFIG/aliases.zsh"
