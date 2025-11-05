@@ -1,0 +1,10 @@
+font-family = JetBrainsMono Nerd Font
+theme = Catppuccin Mocha
+font-size = 14
+cursor-style = block
+cursor-style-blink = true
+adjust-cell-height = 35%
+background = #000000
+background-opacity = 1
+window-padding-balance = true
+copy-on-select = clipboard
