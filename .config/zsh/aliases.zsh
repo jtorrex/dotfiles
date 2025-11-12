@@ -1,6 +1,10 @@
-# ls
-alias l='ls -Flha'
-alias ll='ls -Flha'
+alias watch='watch -c'
+alias ls='eza --group-directories-first --icons=auto'
+alias ll='eza -lha --group-directories-first --icons=auto'
+alias l='eza -lh --group-directories-first --icons=auto'
+
+# fuzzer
+alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 
 # interactive
 alias cp='cp -i'
@@ -81,6 +85,23 @@ alias gpgencrypt="gpg --encrypt --sign -r"
 alias gpgdecrypt="gpg --decrypt"
 alias kvmlist="watch sudo virsh list --all"
 
+# Encrypted scripts management
+edit_encrypted() {
+    if [[ -f "$1" ]]; then
+        TEMP_FILE=$(mktemp)
+        gpg --decrypt "$1" > "$TEMP_FILE"
+        $EDITOR "$TEMP_FILE"
+        gpg --encrypt --sign -r "$GPG_DEFAULT_RECIPIENT" "$TEMP_FILE" > "$1"
+        shred -u "$TEMP_FILE"
+    else
+        echo "Error: File $1 not found"
+        return 1
+    fi
+}
+
+# Aliases for encrypted script management
+alias eenc='edit_encrypted'
+
 # Vagrant as a function
 vvagrant(){
   docker run -it --rm \
@@ -93,6 +114,3 @@ vvagrant(){
     vagrantlibvirt/vagrant-libvirt:latest \
       vagrant $@
 }
-
-# Machines
-alias hpcgw="sshuttle -NHr gateway"
