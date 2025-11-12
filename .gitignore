@@ -38,3 +38,5 @@
 
 # But track example env files
 !**/*.env.example
+.config/mpd/db
+.config/zsh/zsh_plugins.zsh
