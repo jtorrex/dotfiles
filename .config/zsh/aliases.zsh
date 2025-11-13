@@ -11,6 +11,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+# kitty
+alias icat='kitty +kitten icat'
+
 # verbose
 alias mkdir='mkdir -p -v'
 alias rmdir='rmdir -v'
