@@ -38,7 +38,7 @@ bindsym $mod+Tab+Shift workspace next
 bindsym $mod+Tab+Ctrl workspace prev
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec foot
 
 # kill focused window
 bindsym $mod+Shift+q kill
