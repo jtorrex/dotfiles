@@ -1,65 +1,35 @@
-# ZSH
-export ZSH_CONFIG="${HOME}/.config/zsh"
-export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
-export ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
+# XDG
+export XDG_CONFIG_HOME=~/.config
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
 
-. "$HOME/.cargo/env"
-export PATH=~/.npm-global/bin:$PATH
-export QT_QPA_PLATFORM="wayland;xcb"
-export GDK_SCALE=1.4
-
-[[ -d $ZSH_CACHE_DIR ]] || mkdir -p $ZSH_CACHE_DIR
-
-# ENV
-export LC_ALL=en_US.UTF-8
+# Editors
 export EDITOR='nvim'
-export SUDO_EDITOR="$EDITOR"
+export SUDO_EDITOR="nvim"
 export VISUAL='nvim'
 export KUBE_EDITOR='nvim'
 export SQITCH_EDITOR='nvim'
 
+# ZSH
+export ZSH_CONFIG="${HOME}/.config/zsh"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+export CARGO_HOME="$HOME/.cargo"
 export NVM_DIR="${HOME}/.nvm"
-export NVM_LAZY_LOAD=true
-
-export GRIM_DEFAULT_DIR=~/Pictures/Screenshots
-export MOZ_ENABLE_WAYLAND=1
-
-export XDG_CONFIG_HOME=~/.config
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_TYPE=wayland
-export GDK_BACKEND=wayland
-
-export TERM=xterm-kitty
-
-# User scripts paths
-export PATH="$HOME/.local/bin/public:$PATH"           # Public scripts
-export PATH="$HOME/.local/bin/private:$PATH"          # Private scripts
-export PATH="$HOME/bin:$PATH"                         # Legacy bin directory
-export PATH="$PATH:/opt/local/bin"                    # Optional local binaries
-
-export GPG_TTY=$(tty)
-
-export LIBVIRT_DEFAULT_URI="qemu:///system"
-
-# Keyboard
-export XKB_DEFAULT_LAYOUT=us
-export XKB_DEFAULT_VARIANT=altgr-intl
-export XKB_DEFAULT_OPTIONS=compose:menu,level3:ralt_switch
-
-# DEV
 export GOPATH="$HOME/.local"
-export NOTMUCH_CONFIG=~/.config/notmuch/notmuch
 
-# Input method
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-
-# Fix Java application renders as a plain gray box
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# Hide emojis
+# Language
 export PIPENV_HIDE_EMOJIS=1
 
-# If running from tty1 start sway
-#[ "$(tty)" = "/dev/tty1" ] && exec sway
+# Path
+typeset -U path PATH
+path=(
+  $HOME/.local/bin/private
+  $HOME/.local/bin/public
+  $HOME/bin
+  /usr/local/bin
+  /usr/bin
+  /opt/local/bin
+)
+
+export PATH
+

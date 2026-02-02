@@ -1,0 +1,50 @@
+# Ensure cache dir exists
+[[ -d $ZSH_CACHE_DIR ]] || mkdir -p $ZSH_CACHE_DIR
+
+# Wayland / desktop
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export GRIM_DEFAULT_DIR="$HOME/Pictures/Screenshots"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuch"
+
+# GTK scaling (avoid blur)
+export GDK_SCALE=1
+export GDK_DPI_SCALE=1.4
+
+# Qt
+export QT_QPA_PLATFORM=wayland
+
+# Keyboard
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_VARIANT=altgr-intl
+export XKB_DEFAULT_OPTIONS=compose:menu,level3:ralt_switch
+
+# Input method
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+
+# Java / WM
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Libvirt
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
+# GPG (login shell only)
+if [[ -n $SSH_CONNECTION && -t 0 ]]; then
+  export GPG_TTY=$(tty)
+fi
+
+# PATH (deduplicated, ordered)
+typeset -U path PATH
+path=(
+  $CARGO_HOME/bin
+  $HOME/.npm-global/bin
+  $HOME/.opencode/bin
+)
+export PATH
+
+# NVM variables
+export NVM_LAZY_LOAD=true

@@ -1,11 +1,17 @@
-# Enable complex autocompletion
+# Completions
+fpath+=("$XDG_DATA_HOME/zsh/completions")
 autoload -Uz compinit
-compinit
+if [[ ! -f $XDG_CACHE_HOME/zsh/zcompdump ]]; then
+  compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
+else
+  compinit -C -d "$XDG_CACHE_HOME/zsh/zcompdump"
+fi
 
+# History
+setopt SHARE_HISTORY
 export HISTFILE=~/.config/zsh/histfile
 export HISTSIZE=100000
 export SAVEHIST=100000
-
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
 setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
@@ -13,33 +19,25 @@ setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
 setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 
-fpath+=~/.zfunc
+# Plugins bundled
+# Generate with antidote bundle < ~/.config/zsh/zsh_plugins.txt > ~/.config/zsh/zsh_plugins.zsh
+source "$ZSH_CONFIG/zsh_plugins.zsh"
 
-# Enable ssh-agent
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > "/tmp/ssh-agent.env"
-fi
-if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-    source "/tmp/ssh-agent.env" > /dev/null
-fi
+# FZF
+[[ $- == *i* ]] && [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-source "$ZSH_CONFIG/antidote/antidote.zsh"
-antidote load "$ZSH_CONFIG/zsh_plugins.txt"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source <(kubectl completion zsh)
-
-# Enable emacs mode to run properly shortcuts licke Cntrol+A, etec
+# Keymap / promp
 bindkey -e
 eval "$(starship init zsh)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# opencode
-export PATH=/home/jtorrex/.opencode/bin:$PATH
-
 # Aliases
 source "$ZSH_CONFIG/aliases.zsh"
+
+# NVM lazy load
+load-nvm() {
+  unset -f node npm npx
+  source "$NVM_DIR/nvm.sh"
+}
+node() { load-nvm; node "$@" }
+npm()  { load-nvm; npm "$@" }
+npx()  { load-nvm; npx "$@" }
