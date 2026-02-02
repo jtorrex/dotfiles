@@ -1,0 +1,9 @@
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_VARIANT=altgr-intl
+export XKB_DEFAULT_OPTIONS=compose:menu,level3:ralt_switch
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+# Load login environment
+[ -f "$HOME/.zprofile" ] && source "$HOME/.zprofile"
+
