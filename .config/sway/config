@@ -261,7 +261,7 @@ exec_always --no-startup-id mako
 exec_always --no-startup-id keepassxc
 
 #Services initialization
-exec mpd -c '~/.config/mpd/mpd.conf'
+exec mpd -c '$XDG_CONFIG_HOME/mpd/mpd.conf'
 exec --no-startup-id zsh -c 'tmux start-server'
 exec clipcatd
 exec gammastep
