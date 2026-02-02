@@ -1,7 +1,8 @@
 alias watch='watch -c'
-alias ls='eza --group-directories-first --icons=auto'
 alias ll='eza -lha --group-directories-first --icons=auto'
 alias l='eza -lh --group-directories-first --icons=auto'
+alias llart='eza -lha --group-directories-first --icons=auto --sort=modified'
+alias lart='eza -lh --group-directories-first --icons=auto --sort=modified'
 
 # fuzzer
 alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
@@ -48,17 +49,15 @@ alias feh='feh --scale-down --auto-zoom'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias vimwiki='vim ~/Sync/wiki/index.md'
+alias vimwiki='nvim ~/Sync/wiki/index.md'
 
 # kubectl
-source <(kubectl completion zsh)
 alias k='kubectl'
 alias kgp='kubectl get pods -A'
 alias kc='kubectx'
 alias kn='kubens'
 
 # flux
-source <(flux completion zsh)
 alias fgk='flux get kustomizations'
 
 # cheat

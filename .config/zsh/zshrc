@@ -41,3 +41,6 @@ load-nvm() {
 node() { load-nvm; node "$@" }
 npm()  { load-nvm; npm "$@" }
 npx()  { load-nvm; npx "$@" }
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
