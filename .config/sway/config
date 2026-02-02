@@ -1,7 +1,5 @@
 output * adaptive_sync on
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
 assign [app_id="firefox"] 1
 assign [app_id="thunderbird-beta"] 3
 assign [app_id="Telegram"] 8
@@ -12,7 +10,7 @@ default_floating_border pixel 1
 # Gaps
 gaps inner 5
 gaps outer 0
-#smart_gaps on
+smart_gaps on
 smart_borders on
 
 # focus the parent container
@@ -35,10 +33,9 @@ font pango:Firacode 12
 # Back and forth between workspaces
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Tab+Shift workspace next
-bindsym $mod+Tab+Ctrl workspace prev
 
 # start a terminal
-bindsym $mod+Return exec foot
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -257,11 +254,11 @@ input "1739:0:Synaptics_TM3471-020" {
 }
 
 # Autostart applications
-exec_always nm-applet --indicator
-exec_always blueman-applet
-exec_always kanshi
-exec_always mako
-exec_always keepassxc
+exec_always --no-startup-id nm-applet --indicator
+exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id kanshi
+exec_always --no-startup-id mako
+exec_always --no-startup-id keepassxc
 
 #Services initialization
 exec mpd -c '~/.config/mpd/mpd.conf'
@@ -288,8 +285,13 @@ client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
 
+# Load ENV
+include /etc/sway/config.d/*
+exec_always --no-startup-id sh -c 'source ~/.config/sway/env'
+#exec_always --no-startup-id sh -c 'source ~/.config/sway/env'
+exec_always systemctl --user import-environment
+
 bar {
     swaybar_command waybar
 }
 
-include /etc/sway/config.d/*
