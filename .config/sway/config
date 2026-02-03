@@ -26,7 +26,7 @@ bindsym $mod+c exec clipcat-menu
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Firacode 12
+font pango:FiraCode 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 
@@ -288,7 +288,6 @@ client.background       #2B2C2B
 # Load ENV
 include /etc/sway/config.d/*
 exec_always --no-startup-id sh -c 'source ~/.config/sway/env'
-#exec_always --no-startup-id sh -c 'source ~/.config/sway/env'
 exec_always systemctl --user import-environment
 
 bar {
