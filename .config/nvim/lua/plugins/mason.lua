@@ -15,7 +15,7 @@ return {
                 "copilot-language-server",       -- Copilot LSP
                 "nextflow-language-server",
                 "dockerfile-language-server",
-                "pylsp",
+                "python-lsp-server",
                 "clangd",
                 "helm-ls",
                 "terraform-ls",
