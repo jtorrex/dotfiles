@@ -8,4 +8,4 @@ require("core.lsp")
 require("config.colorscheme")
 require("config.icons")
 --
-require("snippets.markdown")
+-- require("snippets.markdown")

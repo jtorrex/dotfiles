@@ -2,8 +2,11 @@ return {
     -- Autopairs for vim
     {
       "windwp/nvim-autopairs",
-      config = function()
-        require("nvim-autopairs").setup({})
+      lazy = false,
+      config = function ()
+        local npairs = require("nvim-autopairs")
+        npairs.setup ({})
+        npairs.remove_rule("`")
       end,
     },
     -- Better Scroll
