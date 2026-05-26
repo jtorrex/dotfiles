@@ -87,6 +87,9 @@ alias gpgencrypt="gpg --encrypt --sign -r"
 alias gpgdecrypt="gpg --decrypt"
 alias kvmlist="watch sudo virsh list --all"
 
+# yt-dlp
+alias ytmp3="yt-dlp -x --audio-format mp3"
+
 # Encrypted scripts management
 edit_encrypted() {
     if [[ -f "$1" ]]; then
