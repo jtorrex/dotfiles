@@ -1,8 +1,14 @@
 return {
   {
-    "ellisonleao/gruvbox.nvim"
+    "gruvbox.nvim"
   },
   {
     "folke/tokyonight.nvim"
+  },
+  {
+    "rebelot/kanagawa.nvim"
+  },
+  {
+    "NLKNguyen/papercolor-theme"
   },
 }
