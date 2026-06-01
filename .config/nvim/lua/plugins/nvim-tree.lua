@@ -3,23 +3,8 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = {"nvim-tree/nvim-web-devicons" },
     config = function ()
-      require("nvim-tree").setup({})
-        local status_ok, nvim_tree = pcall(require, "nvim-tree")
-
-        if not status_ok then
-          return
-        end
-
-        local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-
-        if not config_status_ok then
-          return
-        end
-
-        local tree_cb = nvim_tree_config.nvim_tree_callback
-
-        nvim_tree.setup {
-          update_cwd = true,
+        require("nvim-tree").setup {
+          sync_root_with_cwd = true,
           sort = {
             sorter = "case_sensitive",
           },
@@ -29,14 +14,14 @@ return {
           },
           filters = {
             dotfiles = false,
+            git_ignored = false,
           },
           git = {
             enable = true,
-            ignore = false,    -- Show .gitignore-ignored files
           },
           renderer = {
             group_empty = true,
-            root_folder_modifier = ":t",
+            root_folder_label = ":t",
             icons = {
               glyphs = {
                 default = "",
@@ -76,14 +61,22 @@ return {
           view = {
             width = 30,
             side = "left",
-            mappings = {
-              list = {
-                { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-                { key = "h", cb = tree_cb "close_node" },
-                { key = "v", cb = tree_cb "vsplit" },
-              },
-            },
           },
+          on_attach = function(bufnr)
+            local api = require "nvim-tree.api"
+
+            local function opts(desc)
+              return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+            end
+
+            api.map.on_attach.default(bufnr)
+
+            vim.keymap.set("n", "l",     api.node.open.edit,         opts "Open")
+            vim.keymap.set("n", "<CR>",  api.node.open.edit,         opts "Open")
+            vim.keymap.set("n", "o",     api.node.open.edit,         opts "Open")
+            vim.keymap.set("n", "h",     api.node.navigate.parent_close, opts "Close Node")
+            vim.keymap.set("n", "v",     api.node.open.vertical,     opts "Vertical Split")
+          end,
         }
     end
 }
