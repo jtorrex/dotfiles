@@ -1,5 +1,5 @@
-font-family = JetBrainsMono Nerd Font
-theme = Catppuccin Mocha
+font-family = IoskeleyMonoTerm
+theme = Dracula+
 font-size = 14
 cursor-style = block
 cursor-style-blink = true
