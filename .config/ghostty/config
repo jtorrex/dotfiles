@@ -3,8 +3,10 @@ theme = Dracula+
 font-size = 14
 cursor-style = block
 cursor-style-blink = true
-adjust-cell-height = 35%
+adjust-cell-height = 10%
 background = #000000
 background-opacity = 1
 window-padding-balance = true
 copy-on-select = clipboard
+
+keybind = ctrl+enter=ignore
