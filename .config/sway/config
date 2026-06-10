@@ -35,7 +35,7 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Tab+Shift workspace next
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Shift+q kill
