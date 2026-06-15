@@ -1,13 +1,40 @@
+# Ghostty theme
+theme = Catppuccin Macchiato
+
+# Shell Integration
+shell-integration = zsh
+quit-after-last-window-closed = true
+
+# Font family
 font-family = IoskeleyMonoTerm
-theme = Dracula+
-font-size = 14
-cursor-style = block
-cursor-style-blink = true
+font-style = Regular
+font-style-italic = Regular Italic
+font-style-bold = Bold
+font-style-bold-italic = Bold Italic
 adjust-cell-height = 10%
+
+# Font Size
+font-size = 14
+
+# Opacity of split windows
+unfocused-split-opacity = 0.97
+
+# Set the background-opacity to be fully opaque
 background = #000000
-background-opacity = 1
-window-padding-balance = true
+background-opacity = 1.0
+
+# Cursor Style
+cursor-style-blink = true
+cursor-style = block
+
+# Clipboard settings
+clipboard-read = allow
+clipboard-write = allow
 copy-on-select = clipboard
 
+# Window settings
+window-padding-balance = true
+
+# Keybindings
 keybind = ctrl+enter=text:\r
 keybind = shift+enter=text:\n
