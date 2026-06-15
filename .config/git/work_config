@@ -1,5 +1,5 @@
 [user]
 	name = Jose E Torres
 	email = jose.torres@doitnowgroup.com
-    signingkey = "~/.ssh/work-key.pub"
+    signingkey = "~/.ssh/personal-key.pub"
 
