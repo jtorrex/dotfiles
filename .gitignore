@@ -3,6 +3,8 @@
 .idea/
 *.swp
 *~
+*.zwc
+*.zwc.old
 
 # Neovim
 .config/nvim/bundle/
@@ -14,13 +16,13 @@
 .config/mpd/playlists/
 .config/mpd/state
 .config/mpd/sticker.sql
+.config/mpd/db
 
 # Logs and temporary files
 .config/ncmpcpp/error.log
 .config/alacritty/alacritty.yml.*.bak
 .config/zsh/antidote
 .config/zsh/.zshrc.zwc
-.config/zsh/zsh_plugins.zsh
 
 # Private directories and files
 .config/newsboat/urls
@@ -38,5 +40,8 @@
 
 # But track example env files
 !**/*.env.example
-.config/mpd/db
+
+# Regenerated files
 .config/zsh/zsh_plugins.zsh
+lazy-lock.json
+node_modules/
