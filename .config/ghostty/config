@@ -9,5 +9,5 @@ background-opacity = 1
 window-padding-balance = true
 copy-on-select = clipboard
 
-keybind = shift+enter=send_string:\u001b[13;2u
-keybind = ctrl+enter=send_string:\u001b[13;5u
+keybind = ctrl+enter=text:\r
+keybind = shift+enter=text:\n
