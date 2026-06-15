@@ -1,0 +1,43 @@
+[branch]
+    sort = "-committerdate"
+
+[commit]
+	gpgSign = true
+
+[core]
+	editor = "nvim"
+    fsmonitor = true
+
+[fetch]
+	prune = true
+	writeCommitGraph = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[gpg]
+	format = ssh
+
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = true
+
+[rebase]
+    updateRefs = true
+
+[tag]
+    gpgSign = true
+
+[user]
+    email = "jtorrex@posteo.net"
+    name = "Jose E Torres"
+    signingkey = "~/.ssh/personal-key.pub"
+
+[includeIf "gitdir:~/Workspace/repositories/hpcnow/"]
+	path = "~/.config/git/work_config"
