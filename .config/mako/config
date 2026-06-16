@@ -1,3 +1,13 @@
+# Catppuccin Mocha theme
 max-visible=2
 on-button-left=dismiss
 on-button-right=invoke-default-action
+
+font=IoskeleyMonoTerm 10
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+border-size=2
+border-radius=6
+default-timeout=5000
+anchor=top-right

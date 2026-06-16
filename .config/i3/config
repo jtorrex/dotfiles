@@ -285,17 +285,17 @@ exec --no-startup-id "i3-msg 'workspace 7; append_layout ~/.config/i3/workspace-
 exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/workspace-8.json'"
 
 bar {
-    font pango:DejaVu Sans Serif, FontAwesome 12
+    font pango:IoskeleyMonoTerm, FontAwesome 12
     position top
     status_command i3status-rs ~/.config/i3status-rust/config.toml
     colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
+        separator #6c7086
+        background #1e1e2e
+        statusline #cdd6f4
+        focused_workspace #89b4fa #89b4fa #1e1e2e
+        active_workspace #313244 #313244 #cdd6f4
+        inactive_workspace #313244 #313244 #6c7086
+        urgent_workspace #f38ba8 #f38ba8 #1e1e2e
     }
 }
 
@@ -308,9 +308,10 @@ bindsym $mod+Shift+m bar mode dock bar-0
 # default client.focused          #0089CC #0088CC #ffffff #dddddd
 # red client.focused          #0089CC #FF0000 #ffffff #FF0000
 # green client.focused          #0089CC #ADFf2f #ffffff #ADFf2f
-client.focused          #0089CC #ADFf2f #ffffff #ADFf2f
-client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+# Catppuccin Mocha theme colors
+client.focused          #89b4fa #1e1e2e #cdd6f4 #89b4fa
+client.focused_inactive #45475a #313244 #bac2de #45475a
+client.unfocused        #45475a #313244 #bac2de #45475a
+client.urgent           #f38ba8 #1e1e2e #cdd6f4 #f38ba8
 client.placeholder      #000000 #0c0c0c #ffffff #000000
-client.background       #2B2C2B
+client.background       #1e1e2e

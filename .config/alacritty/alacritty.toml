@@ -13,15 +13,10 @@ mods = "Control|Shift"
 TERM = "alacritty"
 
 [font]
-normal = { family = "FiraCode", style = "Regular" }
-bold = { family = "FiraCode", style = "Bold" }
-italic = { family = "FiraCode", style = "Italic" }
-#normal = { family = "IBM Plex Mono", style = "Regular" }
-#bold = { family = "IBM Plex Mono", style = "Bold" }
-#italic = { family = "IBM Plex Mono", style = "Italic" }
-#normal = { family = "Jetbrains Mono", style = "Regular" }
-#bold = { family = "Jetbrains Mono", style = "Bold" }
-#italic = { family = "Jetbrains Mono", style = "Italic" }
+normal = { family = "IoskeleyMonoTerm", style = "Regular" }
+bold = { family = "IoskeleyMonoTerm", style = "Bold" }
+italic = { family = "IoskeleyMonoTerm", style = "Italic" }
+bold_italic = { family = "IoskeleyMonoTerm", style = "Bold Italic" }
 size = 14
 
 [scrolling]
@@ -55,37 +50,38 @@ animation = "EaseOutExpo"
 color = "#ffffff"
 duration = 0
 
-[colors.bright]
-black = "#575b70"
-blue = "#caa9fa"
-cyan = "#9aedfe"
-green = "#5af78e"
-magenta = "#ff92d0"
-red = "#ff6e67"
-white = "#e6e6e6"
-yellow = "#f4f99d"
+# Catppuccin Mocha
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
 
 [colors.cursor]
-cursor = "#d8dee9"
-text = "#191919"
-
-[colors.normal]
-black = "#000000"
-blue = "#caa9fa"
-cyan = "#8be9fd"
-green = "#50fa7b"
-magenta = "#ff79c6"
-red = "#ff5555"
-white = "#bfbfbf"
-yellow = "#f1fa8c"
-
-[colors.primary]
-background = "#282a36"
-foreground = "#f8f8f2"
+cursor = "#f5e0dc"
+text = "#1e1e2e"
 
 [colors.selection]
-background = "#d8dee9"
-text = "#191919"
+background = "#585b70"
+text = "#cdd6f4"
+
+[colors.normal]
+black = "#45475a"
+blue = "#89b4fa"
+cyan = "#94e2d5"
+green = "#a6e3a1"
+magenta = "#f5c2e7"
+red = "#f38ba8"
+white = "#bac2de"
+yellow = "#f9e2af"
+
+[colors.bright]
+black = "#585b70"
+blue = "#89b4fa"
+cyan = "#94e2d5"
+green = "#a6e3a1"
+magenta = "#f5c2e7"
+red = "#f38ba8"
+white = "#a6adc8"
+yellow = "#f9e2af"
 
 [colors.vi_mode_cursor]
 cursor = "CellForeground"

@@ -278,12 +278,13 @@ exec_always swaybg -i ~/Sync/wallpapers/current -m fill
 bindsym $mod+m bar mode toggle
 bindsym $mod+Shift+m bar mode dock bar-0
 
-client.focused          #0089CC #FF0000 #ffffff #ADFf2f
-client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+# Catppuccin Mocha theme colors
+client.focused          #89b4fa #1e1e2e #cdd6f4 #89b4fa
+client.focused_inactive #45475a #313244 #bac2de #45475a
+client.unfocused        #45475a #313244 #bac2de #45475a
+client.urgent           #f38ba8 #1e1e2e #cdd6f4 #f38ba8
 client.placeholder      #000000 #0c0c0c #ffffff #000000
-client.background       #2B2C2B
+client.background       #1e1e2e
 
 # Load ENV
 include /etc/sway/config.d/*
