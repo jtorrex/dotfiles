@@ -7,26 +7,22 @@ return {
         build = ":MasonUpdate",
         opts = {
             ensure_installed = {
-                -- LSP servers (matching your vim.lsp.enable() config)
-                "ansible-language-server",      -- Ansible LSP
+                -- LSP servers (aligned with lua/core/lsp.lua)
                 "lua-language-server",         -- Lua LSP
+                "clangd",                      -- C/C++ LSP
                 "gopls",                       -- Go LSP
                 "rust-analyzer",               -- Rust LSP
-                "copilot-language-server",       -- Copilot LSP
-                "nextflow-language-server",
-                "dockerfile-language-server",
-                "python-lsp-server",
-                "clangd",
-                "helm-ls",
-                "terraform-ls",
-                "tflint",
-                "yaml-language-server",
+                "python-lsp-server",           -- Python LSP
+                "dockerfile-language-server",  -- Dockerfile LSP
+                "helm-ls",                     -- Helm LSP
+                "terraform-ls",                -- Terraform LSP
+                "tflint",                      -- Terraform linter LSP
+                "yaml-language-server",        -- YAML LSP
+                "ansible-language-server",     -- Ansible LSP
 
-                -- Formatters (for conform.nvim and general use)
+                -- Formatters
                 "stylua",
                 "goimports",
-
-                -- Note: gofmt comes with Go installation, not managed by Mason
                 "prettier",
                 "black",
                 "isort",
@@ -50,11 +46,6 @@ return {
         config = function(_, opts)
             -- PATH is handled by core.mason-path for consistency
             require("mason").setup(opts)
-            -- Automatically connect mason to LSPs
-            -- require("mason-lspconfig").setup({
-            --   ensure_installed = servers,
-            --   automatic_installation = true,
-            -- })
             -- Auto-install ensure_installed tools with better error handling
             local mr = require("mason-registry")
             local function ensure_installed()

@@ -15,7 +15,7 @@
 -- This file prepends Mason's bin directory to the PATH environment variable,
 -- ensuring Mason tools are found first:
 -- Before: PATH = "/usr/local/bin:/usr/bin:/bin"
--- After:  PATH = "/Users/you/.local/share/nvim/mason/bin:/usr/local/bin:/usr/bin:/bin"
+-- After:  PATH = "/home/user/.local/share/nvim/mason/bin:/usr/local/bin:/usr/bin:/bin"
 --
 -- KEY FEATURES:
 -- 1. Deduplication: Removes any existing Mason bin entries to prevent duplicates in PATH
