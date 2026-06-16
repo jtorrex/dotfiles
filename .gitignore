@@ -9,6 +9,10 @@
 # Neovim
 .config/nvim/bundle/
 
+# Pi
+.config/pi/agent/sessions
+.config/pi/agent/auth.json
+
 # MPD
 .config/mpd/database
 .config/mpd/log
