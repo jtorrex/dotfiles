@@ -29,6 +29,7 @@ path=(
   /usr/local/bin
   /usr/bin
   /opt/local/bin
+  $HOME/.npm-global/bin
 )
 
 export PATH

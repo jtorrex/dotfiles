@@ -20,29 +20,33 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 
 # Plugins bundled
-# Generate with antidote bundle < ~/.config/zsh/zsh_plugins.txt > ~/.config/zsh/zsh_plugins.zsh
+# Generate with: antidote bundle < ~/.config/zsh/zsh_plugins > ~/.config/zsh/zsh_plugins.zsh
 source "$ZSH_CONFIG/zsh_plugins.zsh"
 
 # FZF
 [[ $- == *i* ]] && [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-# Keymap / promp
+# Keymap / prompt
 bindkey -e
 eval "$(starship init zsh)"
 
 # Aliases
 source "$ZSH_CONFIG/aliases.zsh"
 
-# NVM lazy load
-load-nvm() {
-  unset -f node npm npx
-  source "$NVM_DIR/nvm.sh"
-}
-node() { load-nvm; node "$@" }
-npm()  { load-nvm; npm "$@" }
-npx()  { load-nvm; npx "$@" }
+# NVM lazy load (only if not already loaded by oh-my-zsh)
+if ! type nvm &>/dev/null; then
+  load-nvm() {
+    unset -f node npm npx
+    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+  }
+  node() { load-nvm; node "$@" }
+  npm()  { load-nvm; npm "$@" }
+  npx()  { load-nvm; npx "$@" }
+fi
 
+# Terraform completion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# ctx shell hook
 eval "$(ctx shell-hook zsh)"
-eval "$(ctx shell-hook)"
