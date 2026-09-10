@@ -1,6 +1,5 @@
 # Ghostty theme
 theme = Catppuccin Mocha
-
 # Shell Integration
 shell-integration = zsh
 quit-after-last-window-closed = true
@@ -14,7 +13,7 @@ font-style-bold-italic = Bold Italic
 adjust-cell-height = 10%
 
 # Font Size
-font-size = 13
+font-size = 12
 
 # Opacity of split windows
 unfocused-split-opacity = 0.97
