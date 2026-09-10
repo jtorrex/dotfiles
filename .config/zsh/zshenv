@@ -23,8 +23,9 @@ export PIPENV_HIDE_EMOJIS=1
 # Path
 typeset -U path PATH
 path=(
-  $HOME/.local/bin/private
+  $HOME/.local/bin/
   $HOME/.local/bin/public
+  $HOME/.local/bin/private
   $HOME/bin
   /usr/local/bin
   /usr/bin
