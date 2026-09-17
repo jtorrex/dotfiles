@@ -1,0 +1,38 @@
+# ────────────────────────────────
+# Laptop Only
+# ────────────────────────────────
+profile laptop {
+  output eDP-1 enable mode 1920x1080@60Hz position 0,0 scale 1.0
+}
+
+# ────────────────────────────────
+# Docked: 4K (P3223QE) only, laptop off
+# ────────────────────────────────
+profile p3223qe-docked {
+  output "Dell Inc. DELL P3223QE 66SG1P3" enable mode 3840x2160@60Hz position 0,0 scale 1.5
+  output eDP-1 disable
+}
+
+# ────────────────────────────────
+# Docked: 4K (P3223QE) on top, laptop adjacent right
+# ────────────────────────────────
+profile p3223qe-docked-2-screens {
+  output "Dell Inc. DELL P3223QE 66SG1P3" enable mode 3840x2160@60Hz position 0,0 scale 1.5
+  output eDP-1 enable mode 1920x1080@60Hz position 2560,0 scale 1.0
+}
+
+# ────────────────────────────────
+# Docked: FHD (P2419H) on top, laptop below
+# ────────────────────────────────
+profile p2419h-docked {
+  output "Dell Inc. DELL P2419H BQ6Q543" enable mode 1920x1080@60Hz position 0,0 scale 1.0
+  output eDP-1 enable mode 1920x1080@60Hz position 0,1080 scale 1.0
+}
+
+# ────────────────────────────────
+# Docked: QHD (P2720D) on top, laptop below
+# ────────────────────────────────
+profile p2720d-hdmi {
+  output HDMI-A-2 enable mode 2560x1440@60Hz position 0,0 scale 1.25
+  output eDP-1 enable mode 1920x1080@60Hz position 0,1152 scale 1.0
+}
