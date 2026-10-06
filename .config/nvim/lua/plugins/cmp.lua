@@ -31,10 +31,8 @@ return {
             -- Load VSCode-style snippets
             require("luasnip.loaders.from_vscode").lazy_load()
 
-            -- Native LSP capability extension for cmp
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            vim.lsp.config.capabilities = capabilities  -- global default for native LSPs
-
+            -- LSP capabilities are wired per server in lua/core/lsp.lua
+            -- (vim.lsp.config only exists on Neovim >= 0.11)
             cmp.setup({
               snippet = {
                 expand = function(args)
