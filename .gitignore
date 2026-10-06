@@ -13,6 +13,19 @@
 .config/pi/agent/sessions
 .config/pi/agent/auth.json
 
+# Herdr (runtime state lives in the config dir)
+.config/herdr/*.log
+.config/herdr/*.sock
+.config/herdr/session.json
+.config/herdr/session-*.json
+.config/herdr/session-history.json
+.config/herdr/release-notes.json
+
+# Machine-local files (paths differ per host)
+.config/go
+.config/gtk-3.0/bookmarks
+.config/git/allowed_signers
+
 # MPD
 .config/mpd/database
 .config/mpd/log
