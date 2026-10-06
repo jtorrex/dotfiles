@@ -1,4 +1,3 @@
 #!/bin/bash
 #~/.local/bin/ssh-keys-init
-~/.local/bin/public/chatgpt-firefox.sh
-~/.local/bin/private/tmux-session-init.sh
+[ -x ~/.local/bin/private/tmux-session-init.sh ] && ~/.local/bin/private/tmux-session-init.sh
