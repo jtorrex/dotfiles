@@ -1,0 +1,161 @@
+# herdr configuration
+#
+# Ported from ~/.config/tmux/tmux.conf, keeping the same layout, behaviour,
+# and keybindings, with one difference: Herdr keeps its default prefix
+# ctrl+b instead of tmux's ctrl+a.
+#
+# Concepts mapping:  tmux session  -> workspace
+#                    tmux window   -> tab
+#                    tmux pane     -> pane
+# IDs already start at 1 (tmux base-index / pane-base-index). Herdr tab IDs
+# are stable and never renumbered (tmux renumber-windows on has no equivalent).
+
+onboarding = false
+
+##### Terminal & Environment #####
+# tmux: default-terminal, terminal-features, allow-passthrough and
+# update-environment have no Herdr equivalent: Herdr is its own terminal
+# emulator and forwards truecolor, focus events, OSC titles and images
+# (kitty_graphics, on by default) to the host terminal itself.
+# tmux: extended-keys always + csi-u — Herdr negotiates CSI-u keys natively.
+[terminal]
+# tmux: window/pane creation with current path preservation
+new_cwd = "follow"
+
+##### Behavior & Monitoring #####
+# tmux: escape-time / repeat-time / display-panes-time — no equivalent,
+# Herdr reads input directly and has no timing knobs.
+# tmux: bell-action none + visual-bell/activity/silence off — Herdr has no
+# bell noise; background notifications are opt-in via [ui.toast] below.
+# (tmux: focus-events on -> ui.redraw_on_focus_gained, in the [ui] section)
+
+##### Prefix Key #####
+# Difference from tmux: keep Herdr's default prefix ctrl+b (tmux: unbind C-b,
+# set -g prefix C-a). Since ctrl+a is no longer the prefix, it flows through
+# to panes untouched — no "bind a send-keys C-a" equivalent needed.
+[keys]
+prefix = "ctrl+b"
+
+# tmux: bind r source-file (reload) / Herdr also has a resize mode, moved to
+# prefix+shift+r to free prefix+r for the reload muscle memory.
+reload_config = "prefix+r"
+resize_mode = "prefix+shift+r"
+
+# tmux: bind q kill-pane / bind Q kill-window
+# tmux detach stays on prefix+d to free prefix+q for closing panes.
+detach = "prefix+d"
+close_pane = "prefix+q"
+close_tab = "prefix+shift+q"
+
+# tmux: bind - split-window -v (stacked) / bind _ split-window -h (side by side)
+# Herdr names these by split direction: horizontal = stacked, vertical = side by side.
+# prefix+shift+minus == "_"; plain prefix+v (Herdr default) is kept as fallback.
+split_horizontal = "prefix+minus"
+split_vertical = ["prefix+v", "prefix+shift+minus"]
+
+# tmux: bind > swap-pane -D / bind < swap-pane -U ("." is next, "," is previous)
+swap_pane_down = "prefix+shift+period"
+swap_pane_up = "prefix+shift+comma"
+# tmux has no left/right swap; unbound so prefix+shift+h/l can resize instead.
+swap_pane_left = ""
+swap_pane_right = ""
+
+# tmux: bind -r H/J/K/L resize-pane (direct, no resize mode needed)
+resize_pane_left = "prefix+shift+h"
+resize_pane_down = "prefix+shift+j"
+resize_pane_up = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+
+##### Window/Pane Navigation #####
+# tmux prefix-free bindings (bind-key -n). ctrl+alt chords are the most
+# reliable family; plain alt chords may depend on the host terminal.
+# sessions -> workspaces: M-C-l switch-client -p / M-C-h switch-client -n
+previous_workspace = "ctrl+alt+l"
+next_workspace = "ctrl+alt+h"
+# windows -> tabs: M-C-k select-window -p / M-C-j select-window -n
+#                  M-Tab next-window / M-S-Tab previous-window
+previous_tab = ["prefix+p", "ctrl+alt+k", "alt+shift+tab"]
+next_tab = ["prefix+n", "ctrl+alt+j", "alt+tab"]
+# panes: M-k select-pane -t :.- / M-j select-pane -t :.+
+cycle_pane_previous = ["prefix+shift+tab", "alt+k"]
+cycle_pane_next = ["prefix+tab", "alt+j"]
+
+##### Copy Mode #####
+# tmux: bind Enter copy-mode / bind Escape copy-mode, copy-mode-vi table.
+# Herdr's copy mode is built-in and already vi-like: h/j/k/l, w/b/e, W/B/E,
+# {/}, PageUp/PageDown, / and ? search, n/N repeat, v or Space to select,
+# V for lines, y or Enter to copy, q/Esc to exit.
+# tmux: tmux_conf_copy_to_os_clipboard=true + MouseDragEnd1Pane -> wl-copy
+# is Herdr's ui.copy_on_select (mouse copy straight to the OS clipboard).
+copy_mode = "prefix+["
+
+##### Configuration Editing #####
+# tmux: bind e new-window $EDITOR ~/.config/tmux/tmux.conf && source ...
+# Herdr's prefix+e defaults to opening pane scrollback in $EDITOR; tmux has
+# no equivalent, so it is unbound and prefix+e edits this config instead.
+edit_scrollback = ""
+
+[[keys.command]]
+key = "prefix+e"
+type = "pane"
+command = "sh -c '${EDITOR:-nvim} ~/.config/herdr/config.toml && herdr server reload-config'"
+description = "edit config.toml and reload"
+
+##### Scrollback #####
+# tmux: history-limit 50000 (lines). Herdr caps per-pane scrollback in bytes;
+# the 10 MB default already holds well over 50k lines — kept explicit here.
+[advanced]
+scrollback_limit_bytes = 10000000
+
+##### Pane Borders #####
+# tmux: pane-border-lines heavy, border fg=colour240, active border fg=colour168
+[ui]
+redraw_on_focus_gained = true     # tmux: focus-events on
+pane_borders = "always"
+pane_outer_borders = true
+pane_gaps = false                 # shared single-line dividers, tmux-style
+show_agent_labels_on_pane_borders = false
+# colour168 (#d75f87) drives Herdr's borders/highlights as the active-border tint.
+accent = "#d75f87"
+# tmux: set -g mouse on — Herdr's defaults already match:
+mouse_capture = true
+copy_on_select = true
+mouse_scroll_lines = 3
+
+##### Status Bar -> Tab Bar #####
+# tmux: status-position bottom, status-justify left — in Herdr the sidebar
+# plays the role of status-left [#S], the tab row the role of the status line.
+tab_bar_position = "bottom"
+# tmux: status-right "| %a %d-%m-%y | %H:%M "  (status-interval 5 -> datetime refreshes itself)
+tab_bar_right = [
+  { type = "datetime", format = "%a %d-%m-%y" },
+  { type = "datetime", format = "%H:%M" },
+]
+tab_bar_right_separator = " | "
+# tmux: set-titles on — Herdr writes the outer terminal title from tokens.
+window_title = "{hostname}: {workspace} {tab}"
+# tmux: automatic-rename off — Herdr asks for a name when creating a tab.
+prompt_new_tab_name = true
+
+[theme]
+# tmux status colours (bg=colour34 fg=colour16, current window bg=colour160)
+# cannot be retargeted token-for-token in Herdr's tab bar; accent above carries
+# the active-pane tint. Base theme left at default.
+name = "catppuccin"
+
+#### Notifications ####
+# tmux: visual-bell/activity/silence off — in-app toasts for agent state
+# changes in background workspaces (Herdr's equivalent of activity alerts).
+[ui.toast]
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+[ui.toast.clipboard]
+enabled = true
+position = "bottom-center"
+
+[experimental]
+pane_history = false
