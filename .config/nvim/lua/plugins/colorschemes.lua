@@ -5,9 +5,6 @@ return {
     priority = 1000,
   },
   {
-    "gruvbox.nvim"
-  },
-  {
     "folke/tokyonight.nvim"
   },
   {
