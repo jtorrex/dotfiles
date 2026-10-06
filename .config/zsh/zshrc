@@ -1,5 +1,5 @@
-# Completions
-fpath+=("$XDG_DATA_HOME/zsh/completions")
+# Completions (the _* functions live next to this file, in $ZSH_CONFIG)
+fpath+=("$ZSH_CONFIG/completions")
 autoload -Uz compinit
 if [[ ! -f $XDG_CACHE_HOME/zsh/zcompdump ]]; then
   compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
@@ -21,7 +21,7 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 
 # Plugins bundled
 # Generate with: antidote bundle < ~/.config/zsh/zsh_plugins > ~/.config/zsh/zsh_plugins.zsh
-source "$ZSH_CONFIG/zsh_plugins.zsh"
+[[ -f "$ZSH_CONFIG/zsh_plugins.zsh" ]] && source "$ZSH_CONFIG/zsh_plugins.zsh"
 
 # FZF
 [[ $- == *i* ]] && [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
@@ -48,5 +48,10 @@ fi
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
-# ctx shell hook
-eval "$(ctx shell-hook zsh)"
+# ctx shell hook (optional tool)
+command -v ctx >/dev/null && eval "$(ctx shell-hook zsh)"
+
+# linuxbrew (optional, path is distro specific)
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
