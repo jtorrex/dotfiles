@@ -3,7 +3,7 @@
 # desktop portal (org.freedesktop.appearance color-scheme), which on sway
 # is driven by `gsettings org.gnome.desktop.interface color-scheme`.
 # Toggle with: $mod+Shift+t (see .local/bin/toggle-theme)
-theme = light:Catppuccin Latte,dark:Catppuccin Mocha
+theme = light:Gruvbox Light Hard,dark:Catppuccin Mocha
 # Shell Integration
 shell-integration = zsh
 quit-after-last-window-closed = true
