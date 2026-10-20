@@ -47,6 +47,9 @@ focus_follows_mouse yes
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
+# toggle light/dark system appearance (ghostty, neovim and tmux follow it)
+bindsym $mod+Shift+t exec ~/.local/bin/toggle-theme
+
 # Change focus (Vi keys)
 bindsym $mod+j focus right
 bindsym $mod+k focus up

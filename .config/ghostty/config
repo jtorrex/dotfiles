@@ -1,5 +1,9 @@
 # Ghostty theme
-theme = Catppuccin Mocha
+# Adaptive light/dark themes follow the system appearance via the XDG
+# desktop portal (org.freedesktop.appearance color-scheme), which on sway
+# is driven by `gsettings org.gnome.desktop.interface color-scheme`.
+# Toggle with: $mod+Shift+t (see .local/bin/toggle-theme)
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 # Shell Integration
 shell-integration = zsh
 quit-after-last-window-closed = true
@@ -18,8 +22,9 @@ font-size = 12
 # Opacity of split windows
 unfocused-split-opacity = 0.97
 
-# Set the background-opacity to be fully opaque
-background = #000000
+# Keep the background fully opaque
+# NOTE: an explicit `background = #RRGGBB` would override the theme's
+# background color and break the light theme, so it stays unset here.
 background-opacity = 1.0
 
 # Cursor Style
