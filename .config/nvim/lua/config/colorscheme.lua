@@ -1,7 +1,7 @@
 -- Colorscheme for the current system appearance:
 --   dark  -> catppuccin (default flavour = "auto" -> mocha)
---   light -> gruvbox with contrast = "hard" (Gruvbox Light Hard: warm cream
---            #f9f5d7 instead of Catppuccin Latte's near-white #eff1f5)
+--   light -> github_light_default (GitHub Light Default: white bg #ffffff,
+--            fg #1f2328, Primer palette — same as ghostty's bundled theme)
 --
 -- Live changes are applied by auto-dark-mode.nvim (lua/plugins/colorschemes.lua);
 -- its initial portal check is asynchronous, so gsettings is queried
@@ -14,7 +14,7 @@ local out = vim.fn.system({
 })
 if type(out) == "string" and out:find("prefer-light", 1, true) then
   vim.o.background = "light"
-  vim.cmd([[colorscheme gruvbox]])
+  vim.cmd([[colorscheme github_light_default]])
 else
   vim.cmd([[colorscheme catppuccin]])
 end
