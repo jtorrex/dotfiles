@@ -274,9 +274,9 @@ exec clipcatd
 exec gammastep
 exec gammastep-indicator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec syncthing
 exec pasystray
 exec autotiling
+exec syncthing
 
 # Wallapaper
 exec_always swaybg -i ~/Sync/wallpapers/current -m fill
@@ -292,7 +292,7 @@ client.background       #1e1e2e
 # Load ENV
 include /etc/sway/config.d/*
 exec_always --no-startup-id sh -c 'source ~/.config/sway/env'
-exec_always systemctl --user import-environment
+exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP PATH
 
 bar {
     swaybar_command waybar
