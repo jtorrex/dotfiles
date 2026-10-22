@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+# toggle-theme — switch the system light/dark appearance and propagate it.
+#
+# Source of truth: gsettings org.gnome.desktop.interface color-scheme,
+# which the XDG desktop portal exposes to apps as
+# org.freedesktop.appearance.color-scheme:
+#   - ghostty follows it natively (theme = light:...,dark:...)
+#   - neovim follows it via f-person/auto-dark-mode.nvim
+#   - tmux follows it via this script (tmux-light.conf / tmux-dark.conf)
+#
+# Bound in sway: $mod+Shift+t
+set -euo pipefail
+
+SCHEMA='org.gnome.desktop.interface'
+KEY='color-scheme'
+current="$(gsettings get ${SCHEMA} ${KEY})"   # 'prefer-light' | 'prefer-dark' | 'default'
+
+if [[ ${current} == "'prefer-light'" ]]; then
+  new='prefer-dark'
+else
+  new='prefer-light'
+fi
+gsettings set ${SCHEMA} ${KEY} ${new}
+
+# Propagate to tmux (ghostty and neovim follow the portal on their own)
+if command -v tmux >/dev/null 2>&1 && tmux info >/dev/null 2>&1; then
+  if [[ ${new} == 'prefer-light' ]]; then
+    tmux source-file "${HOME}/.config/tmux/tmux-light.conf"
+  else
+    tmux source-file "${HOME}/.config/tmux/tmux-dark.conf"
+  fi
+fi
+
+# Low-key feedback notification (mako)
+command -v notify-send >/dev/null 2>&1 && \
+  notify-send -t 1500 -u low 'Appearance' "Switched to ${new}"

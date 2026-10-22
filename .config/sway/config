@@ -47,6 +47,9 @@ focus_follows_mouse yes
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
+# toggle light/dark system appearance (ghostty, neovim and tmux follow it)
+bindsym $mod+Shift+t exec ~/.local/bin/toggle-theme
+
 # Change focus (Vi keys)
 bindsym $mod+j focus right
 bindsym $mod+k focus up
@@ -271,9 +274,9 @@ exec clipcatd
 exec gammastep
 exec gammastep-indicator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec syncthing
 exec pasystray
 exec autotiling
+exec syncthing
 
 # Wallapaper
 exec_always swaybg -i ~/Sync/wallpapers/current -m fill
@@ -289,7 +292,7 @@ client.background       #1e1e2e
 # Load ENV
 include /etc/sway/config.d/*
 exec_always --no-startup-id sh -c 'source ~/.config/sway/env'
-exec_always systemctl --user import-environment
+exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP PATH
 
 bar {
     swaybar_command waybar

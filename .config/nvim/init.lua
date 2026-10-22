@@ -1,3 +1,7 @@
+-- Enable Lua module caching for faster startup (must run before any require;
+-- cache invalidates automatically on file mtime changes)
+vim.loader.enable()
+
 require("config.options")
 require("config.keymaps")
 --
